@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Mark Khoury</title>
+    <title>Awards | Mark Khoury</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -48,8 +48,8 @@
             <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
                 <a href="index.html" class="nav-link hover:text-[#4a7c59] transition">Home</a>
                 <a href="projects.html" class="nav-link hover:text-[#4a7c59] transition">Projects</a>
-                <a href="resume.html" class="nav-link text-[#4a7c59] hover:text-[#4a7c59] transition">Resume</a>
-                <a href="awards.html" class="nav-link hover:text-[#4a7c59] transition">Awards</a>
+                <a href="resume.html" class="nav-link hover:text-[#4a7c59] transition">Resume</a>
+                <a href="awards.html" class="nav-link text-[#4a7c59] hover:text-[#4a7c59] transition">Awards</a>
             </div>
             <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars text-xl"></i>
@@ -58,261 +58,152 @@
         <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-green-100 p-6 flex-col gap-4 shadow-lg">
             <a href="index.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Home</a>
             <a href="projects.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Projects</a>
-            <a href="resume.html" class="text-left font-bold text-[#4a7c59] hover:text-[#4a7c59]">Resume</a>
-            <a href="awards.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Awards</a>
+            <a href="resume.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Resume</a>
+            <a href="awards.html" class="text-left font-bold text-[#4a7c59] hover:text-[#4a7c59]">Awards</a>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="flex-grow pt-20">
-        <div id="resume" class="page-section fade-in py-12 px-6">
-            <div class="max-w-4xl mx-auto pb-32">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6">
-                    <div>
-                        <h1 class="text-5xl font-extrabold mb-4 italic uppercase tracking-tight">Resume.</h1>
-                        <p class="text-gray-500">Experience, Education & Qualifications.</p>
-                    </div>
-                    <a href="#" class="bg-white border-2 border-[#4a7c59] text-[#4a7c59] hover:bg-[#4a7c59] hover:text-white transition px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest flex items-center gap-2">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                </div>
+        <div id="awards" class="page-section fade-in py-12 px-6">
+            <div class="max-w-6xl mx-auto pb-40 text-center">
+                <h1 class="text-5xl font-extrabold mb-4 italic uppercase tracking-tight">Awards.</h1>
+                <p class="text-gray-500 mb-16">Recognition of academic and professional development.</p>
                 
-                <div class="space-y-8">
+                <!-- Main Awards Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+                    <!-- Award 1 -->
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="font-bold mb-2 italic leading-tight text-lg">Dean's Merit List</h3>
+                        <p class="text-[10px] text-[#4a7c59] font-black uppercase tracking-widest mb-4">Academic Honor</p>
+                        <p class="text-gray-500 text-xs">Awarded for outstanding academic performance in 2024.</p>
+                    </div>
+
+                    <!-- Award 2 -->
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="font-bold mb-2 italic leading-tight text-lg">First in Class</h3>
+                        <p class="text-[10px] text-[#4a7c59] font-black uppercase tracking-widest mb-4">Subject Prize</p>
+                        <p class="text-gray-500 text-xs">Ranked Equal 1st in ECON260 (Macroeconomics).</p>
+                    </div>
+
+                    <!-- Award 3 -->
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="font-bold mb-2 italic leading-tight text-lg">New Colombo Plan</h3>
+                        <p class="text-[10px] text-[#4a7c59] font-black uppercase tracking-widest mb-4">Mobility Grant</p>
+                        <p class="text-gray-500 text-xs">Selected for overseas study program in Japan.</p>
+                    </div>
+
+                    <!-- Award 4 -->
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                        <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="font-bold mb-2 italic leading-tight text-lg">HSC Excellence</h3>
+                        <p class="text-[10px] text-[#4a7c59] font-black uppercase tracking-widest mb-4">Academic Honor</p>
+                        <p class="text-gray-500 text-xs">Recognition for outstanding results.</p>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <h2 class="text-3xl font-extrabold mb-12 italic uppercase tracking-tight">Certifications & Credentials.</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-left">
                     
-                    <!-- Professional Background -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
-                         <h2 class="text-2xl font-extrabold mb-6 flex items-center gap-3 text-gray-900">
-                            <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-user-tie"></i></span>
-                            Professional Background
-                        </h2>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Emerging sport marketing and management professional with experience in coaching, peer-led education, and digital communication. Currently building a strong foundation in strategic content creation and community engagement through academic study and applied roles across sport and education.
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            With a background in Sports Marketing and a minor in Economics, I bring a mix of creativity and commercial insight to everything from campaign work to grassroots sports involvement.
-                        </p>
-                    </div>
-
-                    <!-- Education Section -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
-                        <h2 class="text-2xl font-extrabold mb-8 flex items-center gap-3 text-gray-900">
-                            <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-graduation-cap"></i></span>
-                            Education
-                        </h2>
-                        
-                        <!-- UOW -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative pb-8">
-                            <div class="absolute w-4 h-4 bg-[#4a7c59] rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Bachelor of Business</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-2">
-                                <p class="text-[#4a7c59] font-bold text-sm">University of Wollongong</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Feb 2024 – Dec 2026</p>
-                            </div>
-                            <p class="text-gray-600 mb-2">Majoring in Sports Marketing & Management; Minoring in Economics</p>
-                            <div class="flex flex-wrap gap-2 mt-2">
-                                <span class="bg-green-50 text-[#4a7c59] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide">WAM: 89.50</span>
-                                <span class="bg-green-50 text-[#4a7c59] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide">Dean's Merit List (2024)</span>
-                                <span class="bg-green-50 text-[#4a7c59] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide">Ranked Eq. 1st in Macroeconomics (ECON260)</span>
-                            </div>
-                        </div>
-
-                        <!-- High School -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative">
-                            <div class="absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">High School Certificate</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-2">
-                                <p class="text-[#4a7c59] font-bold text-sm">Smith's Hill High School</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Graduated: 2023</p>
-                            </div>
-                            <div class="inline-block bg-green-50 text-[#4a7c59] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide">
-                                ATAR: 90.15 | Gold Leadership and Service Award
-                            </div>
+                    <!-- Cert: Digital Advertising -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#ff7a59] text-3xl mb-4"><i class="fab fa-hubspot"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Digital Advertising</h4>
+                            <p class="text-xs text-gray-500 mb-2">HubSpot Academy</p>
+                            <p class="text-[10px] text-gray-400">Issued Mar 2025</p>
                         </div>
                     </div>
 
-                    <!-- Experience Section -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
-                        <h2 class="text-2xl font-extrabold mb-8 flex items-center gap-3 text-gray-900">
-                            <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-briefcase"></i></span>
-                            Experience
-                        </h2>
-                        
-                        <!-- Marketing & Events Intern -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative pb-8">
-                            <div class="absolute w-4 h-4 bg-[#4a7c59] rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Marketing & Events Intern</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">Activate Events</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Aug 2025 – Present</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Create and manage social media, newsletters, and promotional materials for the MMJ Aquathon to boost event visibility and engagement</li>
-                                <li>Build relationships with sponsors, schools, sporting clubs, and businesses to expand community participation in the MMJ Aquathon</li>
-                                <li>Deliver on-site event support during launch and event days, including set-up, pack-down, and live content capture</li>
-                            </ul>
-                        </div>
-
-                        <!-- PASS Leader -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative pb-8">
-                            <div class="absolute w-4 h-4 bg-[#4a7c59] rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">PASS Leader</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">University of Wollongong</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Feb 2025 – Present</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Facilitate weekly peer-assisted study sessions in both in-person and online formats</li>
-                                <li>Design interactive revision materials and lead collaborative problem-solving activities</li>
-                                <li>Support diverse learning styles and maintain a positive, inclusive learning environment</li>
-                                <li>Collaborate with academic staff to align content with subject requirements</li>
-                            </ul>
-                        </div>
-
-                        <!-- Tennis Coach -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative pb-8">
-                            <div class="absolute w-4 h-4 bg-[#4a7c59] rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Tennis Coach</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">Bulli Tennis Centre</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Aug 2021 – Present</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Deliver coaching to junior and inclusive players through individual and group sessions</li>
-                                <li>Tailor instruction to suit varied abilities, learning styles, and development levels</li>
-                                <li>Promote player confidence through clear communication and goal-focused feedback</li>
-                                <li>Build strong rapport with players and families to support engagement and progress</li>
-                            </ul>
-                        </div>
-
-                        <!-- Footwear Associate -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative pb-8">
-                            <div class="absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Footwear Associate</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">JD Sports</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Nov 2024 – Feb 2025</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Delivered personalised customer service in a high-traffic retail environment</li>
-                                <li>Maintained and organised footwear displays to maximise product appeal and sales</li>
-                                <li>Assisted with stock replenishment, size requests, and inventory control</li>
-                                <li>Supported team targets by promoting key product ranges and upselling when appropriate</li>
-                            </ul>
-                        </div>
-
-                        <!-- Election Official -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative">
-                            <div class="absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Election Official</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">NSW Electoral Commission</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Sept 2023</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Managed voter check-ins and ballot handling at a high-turnout polling station</li>
-                                <li>Ensured compliance with electoral protocols and verified voter identity</li>
-                                <li>Contributed to efficient polling operations with zero procedural errors</li>
-                                <li>Recognised with the highest staff performance rating for professionalism and accuracy</li>
-                            </ul>
+                    <!-- Cert: Effective Leadership -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#0096D6] text-3xl mb-4"><i class="fas fa-laptop-code"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Effective Leadership</h4>
+                            <p class="text-xs text-gray-500 mb-2">HP LIFE</p>
+                            <p class="text-[10px] text-gray-400">Issued Jun 2025</p>
                         </div>
                     </div>
 
-                    <!-- Leadership Section -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
-                        <h2 class="text-2xl font-extrabold mb-8 flex items-center gap-3 text-gray-900">
-                            <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-users"></i></span>
-                            Leadership
-                        </h2>
-                        
-                        <!-- Play Free Sport -->
-                        <div class="border-l-2 border-green-100 pl-8 ml-5 relative pb-8">
-                            <div class="absolute w-4 h-4 bg-[#4a7c59] rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Play Free Sport Volunteer – Basketball</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">UOW Pulse</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Feb 2025 – Present</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Support weekly casual basketball sessions promoting student health and social inclusion</li>
-                                <li>Assist with setup, participant check-in, and informal game coordination</li>
-                                <li>Foster a welcoming, inclusive atmosphere through active peer engagement</li>
-                            </ul>
-                        </div>
-
-                         <!-- Wolves FC -->
-                         <div class="border-l-2 border-green-100 pl-8 ml-5 relative">
-                            <div class="absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
-                            <h3 class="text-xl font-bold text-gray-900">Volunteer Assistant Academy Coach</h3>
-                            <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-3">
-                                <p class="text-[#4a7c59] font-bold text-sm">Wollongong Wolves FC</p>
-                                <span class="hidden md:inline text-gray-300">•</span>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Feb 2022 – July 2022</p>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-gray-600 text-sm leading-relaxed space-y-1">
-                                <li>Delivered weekly technical training sessions for players aged 8–14</li>
-                                <li>Focused on individual skill development, including first touch, passing, and positioning</li>
-                                <li>Adapted coaching based on skill level and player learning styles</li>
-                            </ul>
+                    <!-- Cert: Google Garage -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#4285F4] text-3xl mb-4"><i class="fab fa-google"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Digital Marketing Fundamentals</h4>
+                            <p class="text-xs text-gray-500 mb-2">Google</p>
+                            <p class="text-[10px] text-gray-400">Issued Jan 2025</p>
                         </div>
                     </div>
 
-                    <!-- Skills & Additional Involvement Grid -->
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Skills -->
-                        <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm">
-                            <h2 class="text-xl font-extrabold mb-6 flex items-center gap-3 text-gray-900">
-                                <span class="w-8 h-8 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-sm"><i class="fas fa-tools"></i></span>
-                                Skills & Interests
-                            </h2>
-                            <div class="mb-6">
-                                <h4 class="font-bold text-[#4a7c59] text-xs uppercase tracking-widest mb-3">Technical Skills</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-gray-100 px-3 py-1 rounded-md text-xs font-bold text-gray-700">Google Workspace</span>
-                                    <span class="bg-gray-100 px-3 py-1 rounded-md text-xs font-bold text-gray-700">Canva</span>
-                                    <span class="bg-gray-100 px-3 py-1 rounded-md text-xs font-bold text-gray-700">Excel</span>
-                                    <span class="bg-gray-100 px-3 py-1 rounded-md text-xs font-bold text-gray-700">Meta Business Suite</span>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#4a7c59] text-xs uppercase tracking-widest mb-3">Interests</h4>
-                                <p class="text-sm text-gray-600 leading-relaxed">
-                                    Sports Marketing, Fan Engagement, Strategic Sponsorship, Broadcast Rights, Football (Soccer), NRL, Basketball, Tennis, Global Sport Industry Trends.
-                                </p>
-                            </div>
+                    <!-- LinkedIn: Ethics AI -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Ethics in Age of Generative AI</h4>
+                            <p class="text-xs text-gray-500 mb-2">LinkedIn</p>
+                            <p class="text-[10px] text-gray-400">Issued Aug 2025</p>
                         </div>
+                    </div>
 
-                        <!-- Additional Involvement -->
-                        <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm">
-                            <h2 class="text-xl font-extrabold mb-6 flex items-center gap-3 text-gray-900">
-                                <span class="w-8 h-8 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-sm"><i class="fas fa-handshake"></i></span>
-                                Involvement
-                            </h2>
-                            <ul class="space-y-4">
-                                <li class="text-sm text-gray-700 border-l-2 border-[#4a7c59] pl-3">
-                                    <span class="font-bold block">Competitive Basketball Player</span>
-                                    <span class="text-xs text-gray-500">Snakepit League & UBL | 2021 – Present</span>
-                                </li>
-                                <li class="text-sm text-gray-700 border-l-2 border-[#4a7c59] pl-3">
-                                    <span class="font-bold block">Walk the Field Volunteer</span>
-                                    <span class="text-xs text-gray-500">UOW & Football South Coast | 2025</span>
-                                </li>
-                                <li class="text-sm text-gray-700 border-l-2 border-[#4a7c59] pl-3">
-                                    <span class="font-bold block">Vygo Mentoring Program Mentee</span>
-                                    <span class="text-xs text-gray-500">University of Wollongong | 2024</span>
-                                </li>
-                                <li class="text-sm text-gray-700 border-l-2 border-[#4a7c59] pl-3">
-                                    <span class="font-bold block">Cancer Council Volunteer</span>
-                                    <span class="text-xs text-gray-500">Australia’s Biggest Morning Tea | 2023</span>
-                                </li>
-                            </ul>
+                    <!-- LinkedIn: Gen AI for Marketers -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Gen AI for Digital Marketers</h4>
+                            <p class="text-xs text-gray-500 mb-2">LinkedIn</p>
+                            <p class="text-[10px] text-gray-400">Issued Aug 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn: Prompt Engineering -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Prompt Engineering</h4>
+                            <p class="text-xs text-gray-500 mb-2">LinkedIn</p>
+                            <p class="text-[10px] text-gray-400">Issued Jul 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn: Data Analysis -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">OpenAI Advanced Data Analysis</h4>
+                            <p class="text-xs text-gray-500 mb-2">LinkedIn</p>
+                            <p class="text-[10px] text-gray-400">Issued Aug 2025</p>
+                        </div>
+                    </div>
+                    
+                    <!-- LinkedIn: Gen AI vs Traditional -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Gen AI vs. Traditional AI</h4>
+                            <p class="text-xs text-gray-500 mb-2">LinkedIn</p>
+                            <p class="text-[10px] text-gray-400">Issued Aug 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert: Food Handler -->
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                        <div class="text-gray-400 text-3xl mb-4"><i class="fas fa-utensils"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Food Handler Basics</h4>
+                            <p class="text-xs text-gray-500 mb-2">NSW Food Authority</p>
+                            <p class="text-[10px] text-gray-400">Issued Feb 2025</p>
                         </div>
                     </div>
 
