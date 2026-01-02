@@ -6,157 +6,324 @@
     <title>Mark Khoury | Sports Marketing Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-</script>
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #f7f9f7;
-    color: #1a2e21;
-  }
-  .glass {
-    background: rgba(247, 249, 247, 0.9);
-    backdrop-filter: blur(10px);
-  }
-  .brand-green { color: #4a7c59; }
-  .bg-brand-green { background-color: #4a7c59; }
-</style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7f9f7;
+            color: #1a2e21;
+        }
+        .glass {
+            background: rgba(247, 249, 247, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .brand-green { color: #4a7c59; }
+        .bg-brand-green { background-color: #4a7c59; }
+        
+        /* Fade animation for page transitions */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide Scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
 </head>
-<body>
-    <nav class="fixed top-0 w-full z-50 glass border-b border-green-100">
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-green-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div>
+            <div class="cursor-pointer" onclick="window.location.href='index.html'">
                 <h1 class="text-xl font-extrabold text-gray-900 uppercase leading-none">Mark Khoury</h1>
-                <p class="text-[10px] uppercase tracking-widest text-[#4a7c59] font-bold mt-1">Sports Marketing and Management Specialist</p>
+                <p class="text-[10px] uppercase tracking-widest text-[#4a7c59] font-bold mt-1">Sports Marketing Specialist</p>
             </div>
+            
+            <!-- Desktop Menu -->
             <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
-                <a href="index.html" class="text-[#4a7c59]">Home</a>
-                <a href="projects.html" class="hover:text-[#4a7c59] transition">Projects</a>
-                <a href="resume.html" class="hover:text-[#4a7c59] transition">Resume</a>
-                <a href="awards.html" class="hover:text-[#4a7c59] transition">Awards</a>
-                <a href="#contact" class="hover:text-[#4a7c59] transition">Contact</a>
+                <a href="index.html" class="nav-link text-[#4a7c59] hover:text-[#4a7c59] transition">Home</a>
+                <a href="projects.html" class="nav-link hover:text-[#4a7c59] transition">Projects</a>
+                <a href="resume.html" class="nav-link hover:text-[#4a7c59] transition">Resume</a>
+                <a href="awards.html" class="nav-link hover:text-[#4a7c59] transition">Awards</a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-green-100 p-6 flex-col gap-4 shadow-lg">
+            <a href="index.html" class="text-left font-bold text-[#4a7c59] hover:text-[#4a7c59]">Home</a>
+            <a href="projects.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Projects</a>
+            <a href="resume.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Resume</a>
+            <a href="awards.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Awards</a>
         </div>
     </nav>
 
-    <header id="home" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1519766304800-3cb358590529?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-green-950/50"></div>
-        </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-white text-left">
-                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 italic">Mark <br> Khoury</h2>
-                <p class="text-lg md:text-xl text-green-50 leading-relaxed mb-8 max-w-lg">Emerging sports marketer blending creativity and strategy to build campaigns that connect. Passionate about sport, storytelling, and creating impact through community, clever marketing.</p>
-                <a href="projects.html" class="bg-[#4a7c59] text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block">See my work</a>
-            </div>
-            <div class="hidden md:block">
-                 <div class="w-80 h-96 bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Mark Profile">
-                 </div>
-            </div>
-        </div>
-    </header>
-
-    <section id="about" class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="grid grid-cols-2 gap-4">
-                <div class="rounded-2xl overflow-hidden h-64 border border-green-50 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-20">
+        
+        <!-- HOME PAGE CONTENT -->
+        <div id="home" class="page-section fade-in">
+            <!-- Hero -->
+            <header class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1519766304800-3cb358590529?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-green-950/60 mix-blend-multiply"></div>
                 </div>
-                <div class="rounded-2xl overflow-hidden h-64 mt-8 border border-green-50 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white text-left">
+                        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 italic">Mark <br> Khoury</h2>
+                        <p class="text-lg md:text-xl text-green-50 leading-relaxed mb-8 max-w-lg font-light">
+                            Emerging sports marketer blending <span class="font-bold text-white">creativity</span> and <span class="font-bold text-white">strategy</span>. Passionate about <span class="font-bold text-white">sport</span>, <span class="font-bold text-white">storytelling</span>, and creating <span class="font-bold text-white">impact</span>.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="projects.html" class="bg-[#4a7c59] text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block transform hover:-translate-y-1 text-center flex items-center justify-center">
+                                See my work
+                            </a>
+                            <a href="#contact-section" class="border-2 border-white text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block transform hover:-translate-y-1 text-center flex items-center justify-center" onclick="scrollToContact(event)">
+                                Contact Me
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                         <div class="w-80 h-96 bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative transform rotate-3 hover:rotate-0 transition duration-500">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Mark Profile">
+                         </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h2 class="text-4xl font-extrabold mb-8 italic uppercase tracking-tight border-l-4 border-[#4a7c59] pl-6">About Me.</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">Hi, I'm Mark — a Sports Marketing & Management student at the University of Wollongong, with a minor in Economics and Finance. My work sits at the intersection of sport, creativity, and strategic thinking.</p>
-                <p class="text-gray-700 leading-relaxed mb-6">I've developed skills across campaign content, community sport activation, and digital communication, with experience that ranges from PASS leadership and coaching to executing multi-channel marketing projects.</p>
-                <p class="text-[#4a7c59] font-bold">I care about marketing that performs and leaves a mark.</p>
-            </div>
-        </div>
-    </section>
+            </header>
 
-    <section class="py-24 px-6 bg-green-50/50 border-y border-green-100">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1">
-                <h2 class="text-3xl font-extrabold mb-8 italic uppercase tracking-tight">My Professional Focus.</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">I combine a strategic mindset with hands-on experience in digital content, sport activation, and marketing communication.</p>
-                <p class="font-bold text-[#4a7c59]">Helping brands in sport and entertainment connect more meaningfully with their audiences.</p>
-            </div>
-            <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[400px] border-2 border-white">
-                 <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Focus">
-            </div>
-        </div>
-    </section>
+            <!-- About -->
+            <section class="py-24 px-6 bg-white">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-2xl overflow-hidden h-64 border border-green-50 shadow-md transform translate-y-8">
+                            <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden h-64 border border-green-50 shadow-md">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-extrabold mb-8 italic uppercase tracking-tight border-l-4 border-[#4a7c59] pl-6">About Me.</h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">Hi, I'm Mark — a Sports Marketing & Management student at UOW (Minor: Economics). My work bridges <strong>sport</strong>, <strong>creativity</strong>, and <strong>strategic thinking</strong>.</p>
+                        <p class="text-gray-700 leading-relaxed mb-6">Skilled in <strong>campaign content</strong>, <strong>community activation</strong>, and <strong>digital communication</strong>, with experience ranging from <strong>leadership</strong> and <strong>coaching</strong> to executing <strong>multi-channel marketing</strong> projects.</p>
+                        <p class="text-[#4a7c59] font-bold text-lg">I care about marketing that performs and leaves a mark.</p>
+                    </div>
+                </div>
+            </section>
 
-    <section class="py-24 px-6 bg-white">
-        <h2 class="text-3xl font-extrabold text-center mb-16 italic uppercase tracking-tight">Gallery.</h2>
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
-                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
-                <img src="https://images.unsplash.com/photo-1622163642998-1ea36b1dde3b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
-                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
-                <img src="https://images.unsplash.com/photo-1517137884378-2a00329658bd?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
-                <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
-            </div>
-        </div>
-    </section>
+            <!-- Focus -->
+            <section class="py-24 px-6 bg-green-50/50 border-y border-green-100">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl font-extrabold mb-8 italic uppercase tracking-tight">My Professional Focus.</h2>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-lg">Combining a <strong>strategic mindset</strong> with hands-on experience in <strong>digital content</strong>, <strong>sport activation</strong>, and <strong>marketing communication</strong>.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-bullhorn"></i></div>
+                                <p class="font-bold text-gray-800">Campaign Strategy</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-users"></i></div>
+                                <p class="font-bold text-gray-800">Community Activation</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-chart-line"></i></div>
+                                <p class="font-bold text-gray-800">Digital Analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[400px] border-4 border-white">
+                         <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Focus">
+                    </div>
+                </div>
+            </section>
 
-    <section class="py-24 px-6 bg-green-50/30 border-t border-green-100">
-        <h2 class="text-3xl font-extrabold text-center mb-16 italic uppercase tracking-tight">Testimonials.</h2>
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-            <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm">
-                <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20">“</div>
-                <h4 class="font-bold mb-4 ml-2 italic text-[#4a7c59]">PASS Mentor</h4>
-                <p class="text-gray-600 text-sm leading-relaxed italic">"Mark facilitated the session extremely well. He created an environment that encouraged peer sharing... a great reflection of his leadership."</p>
-            </div>
-            <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm">
-                <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20">“</div>
-                <h4 class="font-bold mb-4 ml-2 italic text-[#4a7c59]">High School Advisor</h4>
-                <p class="text-gray-600 text-sm leading-relaxed italic">"Mark is diligent, proactive, and high-achieving... he balances academic excellence with extracurricular commitment."</p>
-            </div>
-        </div>
-    </section>
+            <!-- Gallery (Manual Scroll, 2.5 Visible) -->
+            <section class="py-24 bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+                    <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">Gallery.</h2>
+                    <p class="text-gray-500 mt-4">Scroll right to explore</p>
+                </div>
+                
+                <!-- Carousel Container -->
+                <div class="max-w-7xl mx-auto">
+                    <!-- Adjusted gap and sizing for 2.5 items visible (approx 40% width) -->
+                    <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-6 no-scrollbar">
+                        
+                        <!-- Item 1 -->
+                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">Leadership & Peer Learning</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">PASS sessions, facilitation, mentoring, collaboration</p>
+                            </div>
+                        </div>
 
-    <section id="contact" class="flex flex-col md:flex-row min-h-[600px] border-t border-green-100">
+                        <!-- Item 2 -->
+                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1622163642998-1ea36b1dde3b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">Strategic & Creative Work</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Campaigns, presentations, planning, strategy</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">University & Academic Life</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Classes, group work, workshops, study environments</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1517137884378-2a00329658bd?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">International Experience</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Japan study tour, campus settings, cultural learning</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">Community & Coaching</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Coaching sessions, grassroots sport, youth involvement</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-24 px-6 bg-green-50/30 border-t border-green-100">
+                <h2 class="text-3xl font-extrabold text-center mb-16 italic uppercase tracking-tight">Testimonials.</h2>
+                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-6 opacity-20 font-serif">“</div>
+                        <div class="relative z-10 flex-grow pt-4">
+                             <p class="text-gray-700 text-sm leading-relaxed italic mb-8">"Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure."</p>
+                        </div>
+                        <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
+                            <h4 class="font-bold text-[#4a7c59] text-sm">Associate Professor</h4>
+                            <p class="text-xs text-gray-400 mt-1">University of Wollongong</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-6 opacity-20 font-serif">“</div>
+                         <div class="relative z-10 flex-grow pt-4">
+                            <p class="text-gray-700 text-sm leading-relaxed italic mb-8">"Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics."</p>
+                        </div>
+                        <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
+                            <h4 class="font-bold text-[#4a7c59] text-sm">Program Mentor</h4>
+                            <p class="text-xs text-gray-400 mt-1">University of Wollongong</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-6 opacity-20 font-serif">“</div>
+                         <div class="relative z-10 flex-grow pt-4">
+                            <p class="text-gray-700 text-sm leading-relaxed italic mb-8">"Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with."</p>
+                        </div>
+                        <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
+                            <h4 class="font-bold text-[#4a7c59] text-sm">Peer Academic Programs Manager</h4>
+                            <p class="text-xs text-gray-400 mt-1">University of Wollongong</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Global Contact Section (visible on Home, but can be reached from anywhere) -->
+    <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
         <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
             <h2 class="text-4xl font-extrabold mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
-            <p class="font-bold text-xl mb-4">marklkhoury01@gmail.com</p>
+            <p class="font-bold text-xl mb-4 hover:underline cursor-pointer">marklkhoury01@gmail.com</p>
+            <p class="text-green-100 max-w-sm">Open for opportunities in sports marketing, event management, and digital strategy.</p>
         </div>
         <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
-            <form class="space-y-6 max-w-md w-full">
+            <form class="space-y-6 max-w-md w-full" onsubmit="event.preventDefault(); alert('Message sent!');">
                 <div class="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition">
-                    <input type="text" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition">
+                    <input type="text" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
+                    <input type="text" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
                 </div>
-                <input type="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition">
-                <textarea placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none"></textarea>
-                <button class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4">Send</button>
+                <input type="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
+                <textarea placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none text-gray-800 placeholder-gray-400"></textarea>
+                <button class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4 hover:bg-[#3d664a] transition">Send</button>
             </form>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-12 bg-green-50/50 text-center border-t border-green-100">
+        <div class="flex justify-center gap-6 mb-8 text-[#4a7c59]">
+            <a href="#" class="hover:scale-110 transition"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="#" class="hover:scale-110 transition"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="#" class="hover:scale-110 transition"><i class="fab fa-twitter text-xl"></i></a>
+        </div>
         <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">© Mark Khoury | 2025 | Wollongong, AU</p>
     </footer>
+
+    <script>
+        function scrollToContact(event) {
+            event.preventDefault();
+            const contactSection = document.getElementById('contact-section');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+    </script>
 </body>
 </html>
