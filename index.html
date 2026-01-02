@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Khoury | Sports Marketing Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f7f9f7;
+    color: #1a2e21;
+  }
+  .glass {
+    background: rgba(247, 249, 247, 0.9);
+    backdrop-filter: blur(10px);
+  }
+  .brand-green { color: #4a7c59; }
+  .bg-brand-green { background-color: #4a7c59; }
+</style>
+</head>
+<body>
+    <nav class="fixed top-0 w-full z-50 glass border-b border-green-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-extrabold text-gray-900 uppercase leading-none">Mark Khoury</h1>
+                <p class="text-[10px] uppercase tracking-widest text-[#4a7c59] font-bold mt-1">Sports Marketing and Management Specialist</p>
+            </div>
+            <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
+                <a href="index.html" class="text-[#4a7c59]">Home</a>
+                <a href="projects.html" class="hover:text-[#4a7c59] transition">Projects</a>
+                <a href="resume.html" class="hover:text-[#4a7c59] transition">Resume</a>
+                <a href="awards.html" class="hover:text-[#4a7c59] transition">Awards</a>
+                <a href="#contact" class="hover:text-[#4a7c59] transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519766304800-3cb358590529?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-green-950/50"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white text-left">
+                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 italic">Mark <br> Khoury</h2>
+                <p class="text-lg md:text-xl text-green-50 leading-relaxed mb-8 max-w-lg">Emerging sports marketer blending creativity and strategy to build campaigns that connect. Passionate about sport, storytelling, and creating impact through community, clever marketing.</p>
+                <a href="projects.html" class="bg-[#4a7c59] text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block">See my work</a>
+            </div>
+            <div class="hidden md:block">
+                 <div class="w-80 h-96 bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Mark Profile">
+                 </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-2xl overflow-hidden h-64 border border-green-50 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                </div>
+                <div class="rounded-2xl overflow-hidden h-64 mt-8 border border-green-50 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-extrabold mb-8 italic uppercase tracking-tight border-l-4 border-[#4a7c59] pl-6">About Me.</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">Hi, I'm Mark — a Sports Marketing & Management student at the University of Wollongong, with a minor in Economics and Finance. My work sits at the intersection of sport, creativity, and strategic thinking.</p>
+                <p class="text-gray-700 leading-relaxed mb-6">I've developed skills across campaign content, community sport activation, and digital communication, with experience that ranges from PASS leadership and coaching to executing multi-channel marketing projects.</p>
+                <p class="text-[#4a7c59] font-bold">I care about marketing that performs and leaves a mark.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-green-50/50 border-y border-green-100">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-3xl font-extrabold mb-8 italic uppercase tracking-tight">My Professional Focus.</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">I combine a strategic mindset with hands-on experience in digital content, sport activation, and marketing communication.</p>
+                <p class="font-bold text-[#4a7c59]">Helping brands in sport and entertainment connect more meaningfully with their audiences.</p>
+            </div>
+            <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[400px] border-2 border-white">
+                 <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Focus">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+        <h2 class="text-3xl font-extrabold text-center mb-16 italic uppercase tracking-tight">Gallery.</h2>
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1622163642998-1ea36b1dde3b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1517137884378-2a00329658bd?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-square bg-white rounded-xl border border-green-50 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-green-50/30 border-t border-green-100">
+        <h2 class="text-3xl font-extrabold text-center mb-16 italic uppercase tracking-tight">Testimonials.</h2>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+            <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm">
+                <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20">“</div>
+                <h4 class="font-bold mb-4 ml-2 italic text-[#4a7c59]">PASS Mentor</h4>
+                <p class="text-gray-600 text-sm leading-relaxed italic">"Mark facilitated the session extremely well. He created an environment that encouraged peer sharing... a great reflection of his leadership."</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm">
+                <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20">“</div>
+                <h4 class="font-bold mb-4 ml-2 italic text-[#4a7c59]">High School Advisor</h4>
+                <p class="text-gray-600 text-sm leading-relaxed italic">"Mark is diligent, proactive, and high-achieving... he balances academic excellence with extracurricular commitment."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="flex flex-col md:flex-row min-h-[600px] border-t border-green-100">
+        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
+            <h2 class="text-4xl font-extrabold mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
+            <p class="font-bold text-xl mb-4">marklkhoury01@gmail.com</p>
+        </div>
+        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
+            <form class="space-y-6 max-w-md w-full">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition">
+                    <input type="text" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition">
+                </div>
+                <input type="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition">
+                <textarea placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none"></textarea>
+                <button class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-green-50/50 text-center border-t border-green-100">
+        <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">© Mark Khoury | 2025 | Wollongong, AU</p>
+    </footer>
+</body>
+</html>
