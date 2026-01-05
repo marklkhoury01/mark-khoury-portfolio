@@ -112,13 +112,8 @@
         <!-- HOME PAGE CONTENT -->
         <div id="home" class="page-section fade-in">
             <!-- Hero -->
-            <header class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+            <header class="relative min-h-[600px] flex items-center justify-center overflow-hidden py-16">
                 <div class="absolute inset-0 z-0">
-                    <!-- 
-                        TO ADD YOUR OWN BACKGROUND IMAGE:
-                        1. Place your image file (e.g., 'hero-bg.jpg') in the same folder as this file.
-                        2. Change the src below to: src="hero-bg.jpg"
-                    -->
                     <img src="https://images.unsplash.com/photo-1519766304800-3cb358590529?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-green-950/60 mix-blend-multiply"></div>
                 </div>
@@ -139,18 +134,16 @@
                     </div>
                     <div class="hidden md:block">
                          <!-- 
-                            Morphing Box Change: Removed 'h-96' and 'w-80'. 
-                            Added 'inline-block' and 'h-auto' so it wraps the image exactly.
-                            Added 'max-w-sm' to constrain maximum width if image is huge.
+                            Morphing Box: Removed fixed height (h-96) and width (w-80).
+                            Added 'inline-block' so the div shrinks to fit the content.
+                            'max-w-md' limits it from getting too huge.
                          -->
-                         <div class="bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative transform rotate-3 hover:rotate-0 transition duration-500 inline-block h-auto w-auto max-w-sm">
+                         <div class="bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative transform rotate-3 hover:rotate-0 transition duration-500 inline-block h-auto w-full max-w-sm">
                             <!-- 
-                                TO ADD YOUR OWN PROFILE PHOTO:
-                                1. Place your image file (e.g., 'profile.jpg') in the same folder.
-                                2. Change the src below to: src="profile.jpg"
-                                3. Removed 'h-full', added 'h-auto' to let image define height.
+                                Image Logic: Removed 'h-full' and 'object-cover'.
+                                Added 'h-auto' and 'w-full' to respect aspect ratio.
                             -->
-                            <img src="images/With my Graduation Certificate.avif">
+                            <img src="images/With my Graduation Certificate.avif" class="w-full h-auto block" alt="Mark Profile" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1000'">
                          </div>
                     </div>
                 </div>
@@ -158,30 +151,22 @@
 
             <!-- About -->
             <section class="py-24 px-6 bg-white">
-                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
                     <div class="grid grid-cols-2 gap-4">
-                        <!-- 
-                            Morphing Box Change: Removed 'h-64'. 
-                            Added 'h-auto' to containers.
-                        -->
-                        <div class="rounded-2xl overflow-hidden h-auto border border-green-50 shadow-md transform translate-y-8">
-                            <!-- 
-                                TO ADD YOUR OWN ABOUT IMAGE 1:
-                                Change src below to your filename, e.g., src="about-1.jpg"
-                                Ensure image is 'h-auto'.
-                            -->
-                            <img src="images/Deans Award.jpeg">
+                        <!-- About Image 1 -->
+                        <!-- Removed 'h-64' fixed height. Added 'h-auto'. -->
+                        <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md transform translate-y-8 h-auto self-start">
+                            <!-- Removed 'object-cover'. Added 'h-auto'. -->
+                            <img src="images/Presentation.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Presentation" onerror="this.src='https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800'">
                         </div>
-                        <div class="rounded-2xl overflow-hidden h-auto border border-green-50 shadow-md">
-                            <!-- 
-                                TO ADD YOUR OWN ABOUT IMAGE 2:
-                                Change src below to your filename, e.g., src="about-2.jpg"
-                                Ensure image is 'h-auto'.
-                            -->
-                            <img src="images/Presentation.jpeg">
+                        <!-- About Image 2 -->
+                        <!-- Removed 'h-64' fixed height. Added 'h-auto'. -->
+                        <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md h-auto self-start">
+                            <!-- Removed 'object-cover'. Added 'h-auto'. -->
+                            <img src="images/Deans Award.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Deans Award" onerror="this.src='https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800'">
                         </div>
                     </div>
-                    <div>
+                    <div class="self-center">
                         <h2 class="text-4xl font-extrabold mb-8 italic uppercase tracking-tight border-l-4 border-[#4a7c59] pl-6">About Me.</h2>
                         <p class="text-gray-700 leading-relaxed mb-6">Hi, I'm Mark — a Sports Marketing & Management student at UOW (Minor: Economics). My work bridges <strong>sport</strong>, <strong>creativity</strong>, and <strong>strategic thinking</strong>.</p>
                         <p class="text-gray-700 leading-relaxed mb-6">Skilled in <strong>campaign content</strong>, <strong>community activation</strong>, and <strong>digital communication</strong>, with experience ranging from <strong>leadership</strong> and <strong>coaching</strong> to executing <strong>multi-channel marketing</strong> projects.</p>
@@ -212,16 +197,13 @@
                         </div>
                     </div>
                     <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[400px] border-4 border-white">
-                         <!-- 
-                            TO ADD YOUR OWN FOCUS IMAGE:
-                            Change src below to your filename, e.g., src="focus.jpg"
-                        -->
+                         <!-- Focus placeholder -->
                          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Focus">
                     </div>
                 </div>
             </section>
 
-            <!-- Gallery (Manual Scroll, 2.5 Visible) -->
+            <!-- Gallery (Manual Scroll) -->
             <section class="py-24 bg-white overflow-hidden">
                 <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
                     <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">Gallery.</h2>
@@ -230,16 +212,11 @@
                 
                 <!-- Carousel Container -->
                 <div class="max-w-7xl mx-auto overflow-x-auto gallery-scroll pb-8">
-                    <!-- Adjusted gap and sizing for 2.5 items visible (approx 40% width) -->
                     <div class="flex gap-6 px-6 w-max">
                         
                         <!-- Item 1 -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <!-- 
-                                    TO ADD YOUR OWN GALLERY IMAGE 1:
-                                    Change src below to your filename, e.g., src="gallery-1.jpg"
-                                -->
                                 <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                             </div>
                             <div class="text-center px-1">
@@ -251,10 +228,6 @@
                         <!-- Item 2 -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <!-- 
-                                    TO ADD YOUR OWN GALLERY IMAGE 2:
-                                    Change src below to your filename, e.g., src="gallery-2.jpg"
-                                -->
                                 <img src="https://images.unsplash.com/photo-1622163642998-1ea36b1dde3b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                             </div>
                             <div class="text-center px-1">
@@ -266,10 +239,6 @@
                         <!-- Item 3 -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <!-- 
-                                    TO ADD YOUR OWN GALLERY IMAGE 3:
-                                    Change src below to your filename, e.g., src="gallery-3.jpg"
-                                -->
                                 <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                             </div>
                             <div class="text-center px-1">
@@ -281,10 +250,6 @@
                         <!-- Item 4 -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <!-- 
-                                    TO ADD YOUR OWN GALLERY IMAGE 4:
-                                    Change src below to your filename, e.g., src="gallery-4.jpg"
-                                -->
                                 <img src="https://images.unsplash.com/photo-1517137884378-2a00329658bd?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                             </div>
                             <div class="text-center px-1">
@@ -296,10 +261,6 @@
                         <!-- Item 5 -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <!-- 
-                                    TO ADD YOUR OWN GALLERY IMAGE 5:
-                                    Change src below to your filename, e.g., src="gallery-5.jpg"
-                                -->
                                 <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                             </div>
                             <div class="text-center px-1">
