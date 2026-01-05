@@ -18,7 +18,7 @@
                     keyframes: {
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-250px * 5))' } /* Adjust based on item width + gap */
+                            '100%': { transform: 'translateX(calc(-250px * 5))' }
                         }
                     }
                 }
@@ -66,11 +66,6 @@
         .gallery-scroll::-webkit-scrollbar-thumb:hover {
             background: #94a3b8; 
         }
-        
-        /* Pause animation on hover */
-        .gallery-track:hover {
-            animation-play-state: paused;
-        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -114,7 +109,8 @@
             <!-- Hero -->
             <header class="relative min-h-[600px] flex items-center justify-center overflow-hidden py-16">
                 <div class="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1519766304800-3cb358590529?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+                    <!-- Background Image -->
+                    <img src="images/Screenshot 2026-01-01 at 9.37.20 pm.jpg" class="w-full h-full object-cover opacity-90" onerror="this.src='https://images.unsplash.com/photo-1519766304800-3cb358590529?auto=format&fit=crop&q=80&w=2000'">
                     <div class="absolute inset-0 bg-green-950/60 mix-blend-multiply"></div>
                 </div>
                 <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -134,14 +130,16 @@
                     </div>
                     <div class="hidden md:block">
                          <!-- 
-                            Morphing Box: Removed fixed height (h-96) and width (w-80).
-                            Added 'inline-block' so the div shrinks to fit the content.
-                            'max-w-md' limits it from getting too huge.
+                            CODE ADJUSTED HERE:
+                            1. Removed fixed width/height (w-80, h-96).
+                            2. Added 'max-w-md' to keep it contained but flexible.
+                            3. Added 'h-auto' to container.
                          -->
-                         <div class="bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative transform rotate-3 hover:rotate-0 transition duration-500 inline-block h-auto w-full max-w-sm">
+                         <div class="bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative transform rotate-3 hover:rotate-0 transition duration-500 inline-block h-auto w-full max-w-md">
                             <!-- 
-                                Image Logic: Removed 'h-full' and 'object-cover'.
-                                Added 'h-auto' and 'w-full' to respect aspect ratio.
+                                IMAGE ADJUSTED HERE:
+                                1. Removed 'h-full' and 'object-cover'.
+                                2. Added 'w-full' and 'h-auto' to respect native aspect ratio.
                             -->
                             <img src="images/With my Graduation Certificate.avif" class="w-full h-auto block" alt="Mark Profile" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1000'">
                          </div>
@@ -154,15 +152,21 @@
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
                     <div class="grid grid-cols-2 gap-4">
                         <!-- About Image 1 -->
-                        <!-- Removed 'h-64' fixed height. Added 'h-auto'. -->
+                        <!-- 
+                            CODE ADJUSTED HERE:
+                            Removed 'h-64'. Added 'h-auto'.
+                        -->
                         <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md transform translate-y-8 h-auto self-start">
-                            <!-- Removed 'object-cover'. Added 'h-auto'. -->
+                             <!-- Removed 'object-cover', added 'h-auto' -->
                             <img src="images/Presentation.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Presentation" onerror="this.src='https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800'">
                         </div>
                         <!-- About Image 2 -->
-                        <!-- Removed 'h-64' fixed height. Added 'h-auto'. -->
+                        <!-- 
+                            CODE ADJUSTED HERE:
+                            Removed 'h-64'. Added 'h-auto'.
+                        -->
                         <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md h-auto self-start">
-                            <!-- Removed 'object-cover'. Added 'h-auto'. -->
+                            <!-- Removed 'object-cover', added 'h-auto' -->
                             <img src="images/Deans Award.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Deans Award" onerror="this.src='https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800'">
                         </div>
                     </div>
@@ -317,7 +321,7 @@
         </div>
     </main>
 
-    <!-- Global Contact Section (visible on Home, but can be reached from anywhere) -->
+    <!-- Global Contact Section -->
     <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
         <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
             <h2 class="text-4xl font-extrabold mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
