@@ -11,6 +11,15 @@
                 extend: {
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+                    },
+                    animation: {
+                        'scroll-slow': 'scroll 30s linear infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(calc(-250px * 5))' } /* Adjust based on item width + gap */
+                        }
                     }
                 }
             }
@@ -42,14 +51,25 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hide Scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        /* Customize scrollbar for gallery */
+        .gallery-scroll::-webkit-scrollbar {
+            height: 8px;
         }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        /* Pause animation on hover */
+        .gallery-track:hover {
+            animation-play-state: paused;
         }
     </style>
 </head>
@@ -123,8 +143,9 @@
                                 TO ADD YOUR OWN PROFILE PHOTO:
                                 1. Place your image file (e.g., 'profile.jpg') in the same folder.
                                 2. Change the src below to: src="profile.jpg"
+                                3. Added 'object-top' to ensure faces aren't cut off if the image is tall
                             -->
-                            <img src="images/With my Graduation Certificate.avif">
+                            <img src="images/Deans Award.jpeg">
                          </div>
                     </div>
                 </div>
@@ -139,14 +160,14 @@
                                 TO ADD YOUR OWN ABOUT IMAGE 1:
                                 Change src below to your filename, e.g., src="about-1.jpg"
                             -->
-                            <img src="images/Presentation.jpeg">
+                            <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
                         </div>
                         <div class="rounded-2xl overflow-hidden h-64 border border-green-50 shadow-md">
                             <!-- 
                                 TO ADD YOUR OWN ABOUT IMAGE 2:
                                 Change src below to your filename, e.g., src="about-2.jpg"
                             -->
-                            <img src="images/Deans Award.jpeg">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
                         </div>
                     </div>
                     <div>
@@ -189,7 +210,7 @@
                 </div>
             </section>
 
-            <!-- Gallery (Manual Scroll, 2.5 Visible) -->
+            <!-- Gallery (Manual Scroll) -->
             <section class="py-24 bg-white overflow-hidden">
                 <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
                     <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">Gallery.</h2>
@@ -197,12 +218,12 @@
                 </div>
                 
                 <!-- Carousel Container -->
-                <div class="max-w-7xl mx-auto">
-                    <!-- Adjusted gap and sizing for 2.5 items visible (approx 40% width) -->
-                    <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-6 no-scrollbar">
+                <div class="max-w-7xl mx-auto overflow-x-auto gallery-scroll pb-8">
+                    <!-- Adjusted gap and sizing -->
+                    <div class="flex gap-6 px-6 w-max">
                         
                         <!-- Item 1 -->
-                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
                                 <!-- 
                                     TO ADD YOUR OWN GALLERY IMAGE 1:
@@ -217,7 +238,7 @@
                         </div>
 
                         <!-- Item 2 -->
-                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
                                 <!-- 
                                     TO ADD YOUR OWN GALLERY IMAGE 2:
@@ -232,7 +253,7 @@
                         </div>
 
                         <!-- Item 3 -->
-                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
                                 <!-- 
                                     TO ADD YOUR OWN GALLERY IMAGE 3:
@@ -247,7 +268,7 @@
                         </div>
 
                         <!-- Item 4 -->
-                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
                                 <!-- 
                                     TO ADD YOUR OWN GALLERY IMAGE 4:
@@ -262,7 +283,7 @@
                         </div>
 
                         <!-- Item 5 -->
-                        <div class="flex-none w-[70vw] md:w-[35%] snap-center group cursor-pointer">
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
                                 <!-- 
                                     TO ADD YOUR OWN GALLERY IMAGE 5:
@@ -283,12 +304,12 @@
             <!-- Testimonials -->
             <section class="py-24 px-6 bg-green-50/30 border-t border-green-100">
                 <h2 class="text-3xl font-extrabold text-center mb-16 italic uppercase tracking-tight">Testimonials.</h2>
-                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
                     <!-- Testimonial 1 -->
                     <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
-                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-6 opacity-20 font-serif">“</div>
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
                         <div class="relative z-10 flex-grow pt-4">
-                             <p class="text-gray-700 text-sm leading-relaxed italic mb-8">"Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure."</p>
+                             <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure."</p>
                         </div>
                         <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
                             <h4 class="font-bold text-[#4a7c59] text-sm">Associate Professor</h4>
@@ -298,9 +319,9 @@
 
                     <!-- Testimonial 2 -->
                     <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
-                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-6 opacity-20 font-serif">“</div>
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
                          <div class="relative z-10 flex-grow pt-4">
-                            <p class="text-gray-700 text-sm leading-relaxed italic mb-8">"Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics."</p>
+                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics."</p>
                         </div>
                         <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
                             <h4 class="font-bold text-[#4a7c59] text-sm">Program Mentor</h4>
@@ -310,9 +331,9 @@
 
                     <!-- Testimonial 3 -->
                     <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
-                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-6 opacity-20 font-serif">“</div>
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
                          <div class="relative z-10 flex-grow pt-4">
-                            <p class="text-gray-700 text-sm leading-relaxed italic mb-8">"Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with."</p>
+                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with."</p>
                         </div>
                         <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
                             <h4 class="font-bold text-[#4a7c59] text-sm">Peer Academic Programs Manager</h4>
