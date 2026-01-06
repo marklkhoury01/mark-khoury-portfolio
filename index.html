@@ -18,7 +18,7 @@
                     keyframes: {
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-250px * 5))' } /* Adjust based on item width + gap */
+                            '100%': { transform: 'translateX(calc(-250px * 5))' }
                         }
                     }
                 }
@@ -42,7 +42,7 @@
         .brand-green { color: #4a7c59; }
         .bg-brand-green { background-color: #4a7c59; }
         
-        /* Fade animation for page transitions */
+        /* Fade animation */
         .fade-in {
             animation: fadeIn 0.4s ease-in-out;
         }
@@ -51,7 +51,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Customize scrollbar for gallery */
+        /* Gallery scrollbar */
         .gallery-scroll::-webkit-scrollbar {
             height: 8px;
         }
@@ -78,7 +78,6 @@
                 <p class="text-[10px] uppercase tracking-widest text-[#4a7c59] font-bold mt-1">Sports Marketing Specialist</p>
             </div>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
                 <a href="index.html" class="nav-link text-[#4a7c59] hover:text-[#4a7c59] transition">Home</a>
                 <a href="projects.html" class="nav-link hover:text-[#4a7c59] transition">Projects</a>
@@ -86,13 +85,11 @@
                 <a href="awards.html" class="nav-link hover:text-[#4a7c59] transition">Awards</a>
             </div>
 
-            <!-- Mobile Menu Button -->
             <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-green-100 p-6 flex-col gap-4 shadow-lg">
             <a href="index.html" class="text-left font-bold text-[#4a7c59] hover:text-[#4a7c59]">Home</a>
             <a href="projects.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Projects</a>
@@ -138,7 +135,7 @@
             <!-- About -->
             <section class="py-24 px-6 bg-white">
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-                    <!-- Adjusted grid: Removed the top two images, kept only the third one -->
+                    <!-- Adjusted grid: Kept only the third image (Presentation) as requested -->
                     <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md h-auto w-full self-center">
                          <img src="images/Presentation.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Presentation" onerror="this.src='https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800'">
                     </div>
@@ -184,58 +181,79 @@
             <section class="py-24 bg-white overflow-hidden">
                 <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
                     <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">Gallery.</h2>
-                    <p class="text-gray-500 mt-4">Scroll right to explore</p>
+                    <p class="text-gray-500 mt-4">Scroll right to explore my journey</p>
                 </div>
                 
                 <!-- Carousel Container -->
                 <div class="max-w-7xl mx-auto overflow-x-auto gallery-scroll pb-8">
                     <div class="flex gap-6 px-6 w-max">
-                        <!-- Gallery Items -->
+                        
+                        <!-- Item 1: Where It Starts -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                <img src="iimages/Social+Media+Profile+Picture+(1).webp">
                             </div>
                             <div class="text-center px-1">
-                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">Leadership & Peer Learning</h4>
-                                <p class="text-gray-500 text-[10px] font-medium leading-tight">PASS sessions, facilitation, mentoring, collaboration</p>
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">1. Where It Starts</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Early moments of focus, curiosity, and preparation</p>
                             </div>
                         </div>
+
+                        <!-- Item 2: Learning in Motion -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="https://images.unsplash.com/photo-1622163642998-1ea36b1dde3b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                <img src="images/Coaching.avif">
                             </div>
                             <div class="text-center px-1">
-                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">Strategic & Creative Work</h4>
-                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Campaigns, presentations, planning, strategy</p>
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">2. Learning in Motion</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Developing skills through action, practice, and reflection</p>
                             </div>
                         </div>
+
+                        <!-- Item 3: Building the Work -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                <img src="images/3.jpeg">
                             </div>
                             <div class="text-center px-1">
-                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">University & Academic Life</h4>
-                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Classes, group work, workshops, study environments</p>
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">3. Building the Work</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Ideas taking shape through planning and execution</p>
                             </div>
                         </div>
+
+                        <!-- Item 4: Along the Way -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="https://images.unsplash.com/photo-1517137884378-2a00329658bd?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                <img src="images/In Action.jpeg">
                             </div>
                             <div class="text-center px-1">
-                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">International Experience</h4>
-                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Japan study tour, campus settings, cultural learning</p>
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">4. Along the Way</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Experiences, environments, and moments between milestones</p>
                             </div>
                         </div>
+
+                        <!-- Item 5: Working With Others -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                <img src="images/Basketball Champs.avif">
                             </div>
                             <div class="text-center px-1">
-                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">Community & Coaching</h4>
-                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Coaching sessions, grassroots sport, youth involvement</p>
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">5. Working With Others</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Collaboration, facilitation, leadership, and shared effort</p>
                             </div>
                         </div>
+
+                         <!-- Item 6: Looking Ahead -->
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/Goal.jpeg">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">6. Looking Ahead</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Growth, direction, and what comes next</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -284,7 +302,7 @@
         </div>
     </main>
 
-    <!-- Global Contact Section -->
+    <!-- Global Contact Section (visible on Home, but can be reached from anywhere) -->
     <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
         <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
             <h2 class="text-4xl font-extrabold mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
