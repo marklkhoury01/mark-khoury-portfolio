@@ -6,7 +6,7 @@
     <title>Mark Khoury | Sports Marketing Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
+        tailwind.config = { 
             theme: {
                 extend: {
                     fontFamily: {
@@ -191,7 +191,7 @@
                         <!-- Item 1: Where It Starts -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="images/Social+Media+Profile+Picture+(1).webp" class="w-full h-full object-cover">
+                                <img src="images/Social+Media+Profile+Picture+(1).webp" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/350'">
                             </div>
                             <div class="text-center px-1">
                                 <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">1. Where It Starts</h4>
@@ -202,7 +202,7 @@
                         <!-- Item 2: Learning in Motion -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="images/Coaching.avif" class="w-full h-full object-cover">
+                                <img src="images/Coaching.avif" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/350'">
                             </div>
                             <div class="text-center px-1">
                                 <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">2. Learning in Motion</h4>
@@ -213,7 +213,7 @@
                         <!-- Item 3: Building the Work -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="images/Canva+For+Real+Estate.webp" class="w-full h-full object-cover">
+                                <img src="images/Canva+For+Real+Estate.webp" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/350'">
                             </div>
                             <div class="text-center px-1">
                                 <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">3. Building the Work</h4>
@@ -224,7 +224,7 @@
                         <!-- Item 4: Along the Way -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="images/In Action.jpeg" class="w-full h-full object-cover">
+                                <img src="images/In Action.jpeg" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/350'">
                             </div>
                             <div class="text-center px-1">
                                 <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">4. Along the Way</h4>
@@ -235,7 +235,7 @@
                         <!-- Item 5: Working With Others -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="images/Basketball Champs.avif" class="w-full h-full object-cover">
+                                <img src="images/Basketball Champs.avif" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/350'">
                             </div>
                             <div class="text-center px-1">
                                 <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">5. Working With Others</h4>
@@ -246,7 +246,7 @@
                          <!-- Item 6: Looking Ahead -->
                         <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
                             <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
-                                <img src="images/Goal.jpeg" class="w-full h-full object-cover">
+                                <img src="images/Goal.jpeg" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/350'">
                             </div>
                             <div class="text-center px-1">
                                 <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">6. Looking Ahead</h4>
@@ -310,14 +310,14 @@
             <p class="text-green-100 max-w-sm">Open for opportunities in sports marketing, event management, and digital strategy.</p>
         </div>
         <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
-            <form class="space-y-6 max-w-md w-full" onsubmit="event.preventDefault(); alert('Message sent!');">
+            <form action="https://formspree.io/f/mvzgjzzb" method="POST" class="space-y-6 max-w-md w-full">
                 <div class="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
-                    <input type="text" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
+                    <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required>
+                    <input type="text" name="lastName" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
                 </div>
-                <input type="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
-                <textarea placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none text-gray-800 placeholder-gray-400"></textarea>
-                <button class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4 hover:bg-[#3d664a] transition">Send</button>
+                <input type="email" name="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required>
+                <textarea name="message" placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none text-gray-800 placeholder-gray-400" required></textarea>
+                <button type="submit" class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4 hover:bg-[#3d664a] transition">Send</button>
             </form>
         </div>
     </section>
