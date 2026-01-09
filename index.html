@@ -84,4 +84,280 @@
         }
 
         .gallery-scroll::-webkit-scrollbar { height: 8px; }
-        .gallery-s
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-green-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="cursor-pointer" onclick="window.location.href='index.html'">
+                <h1 class="text-xl font-extrabold text-gray-900 uppercase leading-none">Mark Khoury</h1>
+                <p class="text-[10px] uppercase tracking-widest text-[#4a7c59] font-bold mt-1">Sports Marketing Specialist</p>
+            </div>
+
+            <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
+                <a href="index.html" class="nav-link text-[#4a7c59] hover:text-[#4a7c59] transition">Home</a>
+                <a href="projects.html" class="nav-link hover:text-[#4a7c59] transition">Projects</a>
+                <a href="resume.html" class="nav-link hover:text-[#4a7c59] transition">Resume</a>
+                <a href="awards.html" class="nav-link hover:text-[#4a7c59] transition">Awards</a>
+            </div>
+
+            <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-green-100 p-6 flex-col gap-4 shadow-lg">
+            <a href="index.html" class="text-left font-bold text-[#4a7c59] hover:text-[#4a7c59]">Home</a>
+            <a href="projects.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Projects</a>
+            <a href="resume.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Resume</a>
+            <a href="awards.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Awards</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-20">
+
+        <div id="home" class="page-section fade-in">
+            <!-- Hero -->
+            <header class="relative min-h-[600px] flex items-center justify-center overflow-hidden py-16 bg-gradient-to-br from-[#3d664a] to-[#1a2e21]">
+                <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white text-left">
+                        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 italic">Mark <br> Khoury</h2>
+                        <p class="text-lg md:text-xl text-green-50 leading-relaxed mb-8 max-w-lg font-light">
+                            Emerging professional blending creativity and strategy, driven by sport, storytelling, and thoughtful outcomes.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="projects.html" class="bg-[#4a7c59] text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block transform hover:-translate-y-1 text-center flex items-center justify-center">
+                                See my work
+                            </a>
+                            <a href="#contact-section" class="border-2 border-white text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block transform hover:-translate-y-1 text-center flex items-center justify-center" onclick="scrollToContact(event)">
+                                Contact Me
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="bg-green-100 rounded-[2rem] border-4 border-white/30 mx-auto overflow-hidden shadow-2xl relative transform rotate-3 hover:rotate-0 transition duration-500 inline-block h-auto w-full max-w-md">
+                            <img src="images/With my Graduation Certificate.avif" class="w-full h-auto block" alt="Mark Profile" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1000'">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- About -->
+            <section class="py-24 px-6 bg-white">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+                    <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md h-auto w-full self-center">
+                        <img src="images/Presentation.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Presentation" onerror="this.src='https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800'">
+                    </div>
+
+                    <div class="self-center">
+                        <h2 class="text-4xl font-extrabold mb-8 italic uppercase tracking-tight border-l-4 border-[#4a7c59] pl-6">About Me.</h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">Hi, I’m Mark. I study Sports Marketing and Management at the University of Wollongong, with a minor in Economics, and I am an emerging professional interested in how creativity, strategy, and leadership come together through sport.</p>
+                        <p class="text-gray-700 leading-relaxed mb-6">I enjoy working on projects from early ideas through to delivery. My experience includes content creation, community activation, digital communication, and team leadership, shaped by coaching roles and hands-on multi-channel work.</p>
+                        <p class="text-[#4a7c59] font-bold leading-relaxed mb-6">Sport has always influenced how I think and work. I value work that is thoughtful, performs in practice, and creates lasting impact.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Focus -->
+            <section class="py-24 px-6 bg-green-50/50 border-y border-green-100">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl font-extrabold mb-8 italic uppercase tracking-tight">My Professional Focus.</h2>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-lg">Applying strategic thinking to practical work across digital content, sport-led activation, and communication, with an emphasis on clarity, execution, and outcomes.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-bullhorn"></i></div>
+                                <p class="font-bold text-gray-800">Campaign Strategy</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-users"></i></div>
+                                <p class="font-bold text-gray-800">Community Activation</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-chart-line"></i></div>
+                                <p class="font-bold text-gray-800">Digital Analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[400px] border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Focus">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery (Manual Scroll) -->
+            <section class="py-24 bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+                    <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">The process.</h2>
+                    <p class="text-gray-500 mt-4">Scroll to see it unfold</p>
+                </div>
+
+                <div class="max-w-7xl mx-auto overflow-x-auto gallery-scroll pb-8">
+                    <div class="flex gap-6 px-6 w-max">
+
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/Social+Media+Profile+Picture+(1).webp" class="w-full h-full object-cover" alt="Where It Starts" onerror="this.src='https://placehold.co/350'">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">1. Where It Starts</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Early moments of focus, curiosity, and preparation</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/Coaching.avif" class="w-full h-full object-cover" alt="Learning in Motion" onerror="this.src='https://placehold.co/350'">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">2. Learning in Motion</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Developing skills through action, practice, and reflection</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/Canva+For+Real+Estate.webp" class="w-full h-full object-cover" alt="Building the Work" onerror="this.src='https://placehold.co/350'">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">3. Building the Work</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Ideas taking shape through planning and execution</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/In Action.jpeg" class="w-full h-full object-cover" alt="Along the Way" onerror="this.src='https://placehold.co/350'">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">4. Along the Way</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Experiences, environments, and moments between milestones</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/Basketball Champs.avif" class="w-full h-full object-cover" alt="Working With Others" onerror="this.src='https://placehold.co/350'">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">5. Working With Others</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Collaboration, facilitation, leadership, and shared effort</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[70vw] md:w-[350px] group cursor-pointer">
+                            <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden shadow-sm relative mb-4">
+                                <img src="images/Goal.jpeg" class="w-full h-full object-cover" alt="Looking Ahead" onerror="this.src='https://placehold.co/350'">
+                            </div>
+                            <div class="text-center px-1">
+                                <h4 class="text-[#4a7c59] font-bold text-sm uppercase mb-2 leading-tight">6. Looking Ahead</h4>
+                                <p class="text-gray-500 text-[10px] font-medium leading-tight">Growth, direction, and what comes next</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-24 px-6 bg-green-50/30 border-t border-green-100">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">Testimonials.</h2>
+                    <p class="text-gray-500 mt-2 text-sm">What others had to say.</p>
+                </div>
+                <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
+                        <div class="relative z-10 flex-grow pt-4">
+                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure."</p>
+                        </div>
+                        <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
+                            <h4 class="font-bold text-[#4a7c59] text-sm">Associate Professor</h4>
+                            <p class="text-xs text-gray-400 mt-1">University of Wollongong</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
+                        <div class="relative z-10 flex-grow pt-4">
+                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics."</p>
+                        </div>
+                        <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
+                            <h4 class="font-bold text-[#4a7c59] text-sm">Program Mentor</h4>
+                            <p class="text-xs text-gray-400 mt-1">University of Wollongong</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
+                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
+                        <div class="relative z-10 flex-grow pt-4">
+                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with."</p>
+                        </div>
+                        <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
+                            <h4 class="font-bold text-[#4a7c59] text-sm">Peer Academic Programs Manager</h4>
+                            <p class="text-xs text-gray-400 mt-1">University of Wollongong</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Global Contact Section -->
+    <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
+        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
+            <h2 class="text-4xl font-extrabold mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
+            <p class="font-bold text-xl mb-4 hover:underline cursor-pointer">marklkhoury01@gmail.com</p>
+            <p class="text-green-100 max-w-sm">Open to opportunities across sports marketing, event management, and digital strategy.</p>
+        </div>
+        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
+            <form action="https://formspree.io/f/mvzgjzzb" method="POST" class="space-y-6 max-w-md w-full">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required>
+                    <input type="text" name="lastName" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400">
+                </div>
+                <input type="email" name="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required>
+                <textarea name="message" placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none text-gray-800 placeholder-gray-400" required></textarea>
+                <button type="submit" class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4 hover:bg-[#3d664a] transition">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-green-50/50 text-center border-t border-green-100">
+        <div class="flex justify-center gap-6 mb-8 text-[#4a7c59]">
+            <a href="https://www.linkedin.com/in/mark-khoury-9b96a0322" target="_blank" rel="noopener" class="hover:scale-110 transition"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="https://www.instagram.com/khourymarketing/" target="_blank" rel="noopener" class="hover:scale-110 transition"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="https://www.youtube.com/@markkhoury1053" target="_blank" rel="noopener" class="hover:scale-110 transition"><i class="fab fa-youtube text-xl"></i></a>
+        </div>
+        <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">© Mark Khoury | 2025 | Wollongong, AU</p>
+    </footer>
+
+    <script>
+        function scrollToContact(event) {
+            event.preventDefault();
+            const contactSection = document.getElementById('contact-section');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+    </script>
+</body>
+</html>
