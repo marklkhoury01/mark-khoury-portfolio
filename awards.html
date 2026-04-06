@@ -329,14 +329,15 @@
         </div>
 
         <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
-            <form action="https://formspree.io/f/mvzgjzzb" method="POST" class="space-y-6 max-w-md w-full">
+            <form id="contact-form" class="space-y-6 max-w-md w-full">
                 <div class="grid grid-cols-2 gap-4">
                     <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required />
                     <input type="text" name="lastName" placeholder="Last Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" />
                 </div>
                 <input type="email" name="email" placeholder="Email *" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required />
                 <textarea name="message" placeholder="Message" rows="4" class="w-full bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition resize-none text-gray-800 placeholder-gray-400" required></textarea>
-                <button type="submit" class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4 hover:bg-[#3d664a] transition">Send</button>
+                <button type="submit" id="submit-btn" class="w-full bg-[#4a7c59] text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl mt-4 hover:bg-[#3d664a] transition">Send</button>
+                <p id="form-msg" class="text-sm font-bold hidden"></p>
             </form>
         </div>
     </section>
@@ -357,6 +358,30 @@
             menu.classList.toggle('hidden');
             menu.classList.toggle('flex');
         }
+
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('form-msg');
+            const data = Object.fromEntries(new FormData(this));
+            btn.textContent = 'Sending...'; btn.disabled = true; msg.classList.add('hidden');
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                if (res.ok) {
+                    msg.textContent = "Message sent. I'll be in touch soon.";
+                    msg.className = 'text-sm font-bold text-[#4a7c59]';
+                    this.reset();
+                } else { throw new Error(); }
+            } catch {
+                msg.textContent = 'Something went wrong. Try emailing me directly.';
+                msg.className = 'text-sm font-bold text-red-500';
+            }
+            btn.textContent = 'Send'; btn.disabled = false;
+        });
     </script>
 </body>
 </html>
