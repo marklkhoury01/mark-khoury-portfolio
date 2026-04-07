@@ -11,10 +11,6 @@ module.exports = async function handler(req, res) {
         return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
-        return res.status(500).json({ error: 'Env vars missing', user: !!process.env.GMAIL_USER, pass: !!process.env.GMAIL_PASS });
-    }
-
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -41,6 +37,6 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ success: true });
     } catch (error) {
         console.error('Email error:', error);
-        return res.status(500).json({ error: 'Failed to send message', detail: error.message });
+        return res.status(500).json({ error: 'Failed to send message' });
     }
 }
