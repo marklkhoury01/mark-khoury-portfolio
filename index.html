@@ -83,6 +83,62 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* ── Scroll & load animations ── */
+        :root { --spring: cubic-bezier(0.16, 1, 0.3, 1); }
+
+        /* Fade + lift */
+        .reveal        { opacity:0; transform:translateY(48px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-left   { opacity:0; transform:translateX(-56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-right  { opacity:0; transform:translateX(56px);  transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        /* Scale in */
+        .reveal-scale  { opacity:0; transform:scale(.88) translateY(28px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        /* All fire on .in-view */
+        .reveal.in-view,.reveal-left.in-view,.reveal-right.in-view,.reveal-scale.in-view {
+            opacity:1; transform:none;
+        }
+
+        /* Clip-path heading reveal */
+        .clip-reveal { overflow:hidden; display:block; }
+        .clip-reveal-inner {
+            display:block;
+            transform:translateY(110%);
+            transition:transform .85s var(--spring);
+        }
+        .clip-reveal.in-view .clip-reveal-inner { transform:translateY(0); }
+
+        /* Stagger delays */
+        .d1{transition-delay:.08s} .d2{transition-delay:.18s} .d3{transition-delay:.28s}
+        .d4{transition-delay:.38s} .d5{transition-delay:.48s} .d6{transition-delay:.58s}
+
+        /* Hero word-by-word on load */
+        @keyframes heroUp {
+            from { opacity:0; transform:translateY(44px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        .hero-word {
+            display:inline-block;
+            opacity:0;
+            animation:heroUp .85s var(--spring) forwards;
+        }
+
+        /* Line draw for the green left-border on headings */
+        @keyframes borderGrow {
+            from { height:0; }
+            to   { height:100%; }
+        }
+        .border-animate { position:relative; border-left:none !important; padding-left:1.5rem; }
+        .border-animate::before {
+            content:'';
+            position:absolute;
+            left:0; top:0;
+            width:4px;
+            height:0;
+            background:#4a7c59;
+            border-radius:2px;
+            transition:height .7s var(--spring);
+        }
+        .border-animate.in-view::before { height:100%; }
+
         .gallery-scroll::-webkit-scrollbar { height: 8px; }
         .gallery-scroll::-webkit-scrollbar-track {
             background: #f1f1f1;
@@ -134,11 +190,14 @@
             <header class="relative min-h-[600px] flex items-center justify-center overflow-hidden py-16 bg-gradient-to-br from-[#3d664a] to-[#1a2e21]">
                 <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <div class="text-white text-left">
-                        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 italic">Mark <br> Khoury</h2>
-                        <p class="text-lg md:text-xl text-green-50 leading-relaxed mb-8 max-w-lg font-light">
+                        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 italic">
+                            <span class="hero-word" style="animation-delay:.05s">Mark</span><br>
+                            <span class="hero-word" style="animation-delay:.22s">Khoury</span>
+                        </h2>
+                        <p class="hero-word text-lg md:text-xl text-green-50 leading-relaxed mb-8 max-w-lg font-light" style="animation-delay:.42s">
                             Final year business student. I coach, facilitate, compete, and build things, usually all at once.
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="hero-word flex flex-col sm:flex-row gap-4" style="animation-delay:.58s">
                             <a href="projects.html" class="bg-[#4a7c59] text-white px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#4a7c59] transition shadow-lg inline-block transform hover:-translate-y-1 text-center flex items-center justify-center">
                                 See my work
                             </a>
@@ -158,16 +217,18 @@
             <!-- About -->
             <section class="py-12 md:py-24 px-6 bg-white">
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-start">
-                    <div class="rounded-2xl overflow-hidden border border-green-50 shadow-md h-auto w-full self-center">
+                    <div class="reveal-left rounded-2xl overflow-hidden border border-green-50 shadow-md h-auto w-full self-center">
                         <img src="images/Presentation.jpeg" class="w-full h-auto block hover:scale-105 transition duration-700" alt="Presentation" onerror="this.src='https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800'">
                     </div>
 
                     <div class="self-center">
-                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6 md:mb-8 italic uppercase tracking-tight border-l-4 border-[#4a7c59] pl-6">About Me.</h2>
-                        <p class="text-gray-700 leading-relaxed mb-6">Hi, I’m Mark. I’m in my final year of a Business degree at the University of Wollongong, and I’ve spent the last few years throwing myself into as many different things as I can, studying, coaching, leading, competing, and working.</p>
-                        <p class="text-gray-700 leading-relaxed mb-6">I like being across a lot at once. Whether it’s running a PASS session, building a campaign strategy, or competing in a pickleball tournament on a Saturday morning, I bring the same energy to all of it.</p>
-                        <p class="text-gray-700 leading-relaxed mb-6">Most of what I’ve learned hasn’t come from a textbook. It’s come from coaching kids at tennis, working an events internship, facilitating study sessions, and figuring things out as I go. Academically I’ve finished in the top two students in four subjects and hold a WAM of 89.50, but I think what sets me apart is how I apply what I learn outside the classroom.</p>
-                        <p class="text-[#4a7c59] font-bold leading-relaxed mb-6">I’m open to where my career takes me. I care about doing work that’s creative, purposeful, and actually makes a difference to the people around me.</p>
+                        <h2 class="border-animate reveal text-3xl md:text-4xl font-extrabold mb-6 md:mb-8 italic uppercase tracking-tight">
+                            <span class="clip-reveal"><span class="clip-reveal-inner">About Me.</span></span>
+                        </h2>
+                        <p class="reveal d1 text-gray-700 leading-relaxed mb-6">Hi, I’m Mark. I’m in my final year of a Business degree at the University of Wollongong, and I’ve spent the last few years throwing myself into as many different things as I can, studying, coaching, leading, competing, and working.</p>
+                        <p class="reveal d2 text-gray-700 leading-relaxed mb-6">I like being across a lot at once. Whether it’s running a PASS session, building a campaign strategy, or competing in a pickleball tournament on a Saturday morning, I bring the same energy to all of it.</p>
+                        <p class="reveal d3 text-gray-700 leading-relaxed mb-6">Most of what I’ve learned hasn’t come from a textbook. It’s come from coaching kids at tennis, working an events internship, facilitating study sessions, and figuring things out as I go. Academically I’ve finished in the top two students in four subjects and hold a WAM of 89.50, but I think what sets me apart is how I apply what I learn outside the classroom.</p>
+                        <p class="reveal d4 text-[#4a7c59] font-bold leading-relaxed mb-6">I’m open to where my career takes me. I care about doing work that’s creative, purposeful, and actually makes a difference to the people around me.</p>
                     </div>
                 </div>
             </section>
@@ -176,24 +237,26 @@
             <section class="py-12 md:py-24 px-6 bg-green-50/50 border-y border-green-100">
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                     <div class="order-2 md:order-1">
-                        <h2 class="text-2xl md:text-3xl font-extrabold mb-6 md:mb-8 italic uppercase tracking-tight">My Professional Focus.</h2>
-                        <p class="text-gray-700 leading-relaxed mb-6">I'm drawn to work that sits at the intersection of people, ideas, and execution. I like building things, whether that's a campaign, an event, or a session plan, and I like the moment when a plan actually comes together.</p>
+                        <h2 class="border-animate reveal text-2xl md:text-3xl font-extrabold mb-6 md:mb-8 italic uppercase tracking-tight">
+                            <span class="clip-reveal"><span class="clip-reveal-inner">My Professional Focus.</span></span>
+                        </h2>
+                        <p class="reveal d1 text-gray-700 leading-relaxed mb-6">I'm drawn to work that sits at the intersection of people, ideas, and execution. I like building things, whether that's a campaign, an event, or a session plan, and I like the moment when a plan actually comes together.</p>
                         <div class="space-y-4">
-                            <div class="flex items-center gap-4">
+                            <div class="reveal d2 flex items-center gap-4">
                                 <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-bullhorn"></i></div>
                                 <p class="font-bold text-gray-800">Campaign Strategy</p>
                             </div>
-                            <div class="flex items-center gap-4">
+                            <div class="reveal d3 flex items-center gap-4">
                                 <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-calendar-check"></i></div>
                                 <p class="font-bold text-gray-800">Events and Activation</p>
                             </div>
-                            <div class="flex items-center gap-4">
+                            <div class="reveal d4 flex items-center gap-4">
                                 <div class="w-10 h-10 rounded-full bg-[#4a7c59] text-white flex items-center justify-center"><i class="fas fa-users"></i></div>
                                 <p class="font-bold text-gray-800">People and Facilitation</p>
                             </div>
                         </div>
                     </div>
-                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[220px] md:h-[400px] border-4 border-white">
+                    <div class="reveal-right order-1 md:order-2 rounded-2xl overflow-hidden shadow-xl h-[220px] md:h-[400px] border-4 border-white">
                         <img src="images/IMG_1098.jpeg" class="w-full h-full object-cover" alt="Focus">
                     </div>
                 </div>
@@ -202,8 +265,8 @@
             <!-- Gallery (Manual Scroll) -->
             <section class="py-12 md:py-24 bg-white overflow-hidden">
                 <div class="max-w-7xl mx-auto px-6 mb-8 md:mb-16 text-center">
-                    <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">The process.</h2>
-                    <p class="text-gray-500 mt-4">Scroll to see it unfold</p>
+                    <h2 class="reveal text-3xl font-extrabold italic uppercase tracking-tight">The process.</h2>
+                    <p class="reveal stagger-1 text-gray-500 mt-4">Scroll to see it unfold</p>
                 </div>
 
                 <div class="max-w-7xl mx-auto overflow-x-auto gallery-scroll pb-8">
@@ -276,14 +339,14 @@
             <!-- Testimonials -->
             <section class="py-12 md:py-24 px-6 bg-green-50/30 border-t border-green-100">
                 <div class="text-center mb-8 md:mb-16">
-                    <h2 class="text-3xl font-extrabold italic uppercase tracking-tight">Testimonials.</h2>
-                    <p class="text-gray-500 mt-2 text-sm">What others had to say.</p>
+                    <h2 class="reveal text-3xl font-extrabold italic uppercase tracking-tight">Testimonials.</h2>
+                    <p class="reveal stagger-1 text-gray-500 mt-2 text-sm">What others had to say.</p>
                 </div>
                 <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
-                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
-                        <div class="relative z-10 flex-grow pt-4">
-                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure."</p>
+                    <div class=”reveal-scale d1 bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300”>
+                        <div class=”text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif”>”</div>
+                        <div class=”relative z-10 flex-grow pt-4”>
+                            <p class=”text-gray-600 text-sm leading-relaxed italic mb-6”>”Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure."</p>
                         </div>
                         <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
                             <h4 class="font-bold text-[#4a7c59] text-sm">Associate Professor</h4>
@@ -291,10 +354,10 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
-                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
-                        <div class="relative z-10 flex-grow pt-4">
-                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics."</p>
+                    <div class=”reveal-scale d2 bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300”>
+                        <div class=”text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif”>”</div>
+                        <div class=”relative z-10 flex-grow pt-4”>
+                            <p class=”text-gray-600 text-sm leading-relaxed italic mb-6”>”Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics."</p>
                         </div>
                         <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
                             <h4 class="font-bold text-[#4a7c59] text-sm">Program Mentor</h4>
@@ -302,10 +365,10 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300">
-                        <div class="text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif">“</div>
-                        <div class="relative z-10 flex-grow pt-4">
-                            <p class="text-gray-600 text-sm leading-relaxed italic mb-6">"Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with."</p>
+                    <div class=”reveal-scale d3 bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300”>
+                        <div class=”text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif”>”</div>
+                        <div class=”relative z-10 flex-grow pt-4”>
+                            <p class=”text-gray-600 text-sm leading-relaxed italic mb-6”>”Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with."</p>
                         </div>
                         <div class="relative z-10 border-t border-green-50 pt-4 mt-auto">
                             <h4 class="font-bold text-[#4a7c59] text-sm">Peer Academic Programs Manager</h4>
@@ -319,12 +382,12 @@
 
     <!-- Global Contact Section -->
     <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
-        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
+        <div class="reveal-left bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
             <h2 class="text-3xl md:text-4xl font-extrabold mb-4 md:mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
             <a href="mailto:marklkhoury01@gmail.com" class="font-bold text-xl mb-4 hover:underline block">marklkhoury01@gmail.com</a>
             <p class="text-green-100 max-w-sm">Always open to a conversation, whether it's a role, a project, or just a coffee.</p>
         </div>
-        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
+        <div class="reveal-right bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
             <form id="contact-form" class="space-y-6 max-w-md w-full">
                 <div class="grid grid-cols-2 gap-4">
                     <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required>
@@ -391,6 +454,24 @@
 
             btn.textContent = 'Send';
             btn.disabled = false;
+        });
+    </script>
+
+    <script>
+        // Scroll reveal — fires once per element
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll(
+            '.reveal, .reveal-left, .reveal-right, .reveal-scale, .clip-reveal, .border-animate'
+        ).forEach(function(el) {
+            observer.observe(el);
         });
     </script>
 </body>
