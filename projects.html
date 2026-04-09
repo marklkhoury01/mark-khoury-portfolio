@@ -67,6 +67,19 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* === Scroll Animations === */
+        :root { --spring: cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal { opacity:0; transform:translateY(48px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-left { opacity:0; transform:translateX(-56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-right { opacity:0; transform:translateX(56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-scale { opacity:0; transform:scale(.88) translateY(28px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal.in-view,.reveal-left.in-view,.reveal-right.in-view,.reveal-scale.in-view { opacity:1; transform:none; }
+        .clip-reveal { overflow:hidden; display:block; }
+        .clip-reveal-inner { display:block; transform:translateY(110%); transition:transform .85s var(--spring); }
+        .clip-reveal.in-view .clip-reveal-inner { transform:translateY(0); }
+        .d1{transition-delay:.08s} .d2{transition-delay:.18s} .d3{transition-delay:.28s} .d4{transition-delay:.38s} .d5{transition-delay:.48s} .d6{transition-delay:.58s}
+        @keyframes heroUp { from{opacity:0;transform:translateY(44px)} to{opacity:1;transform:translateY(0)} }
+        .hero-word { display:inline-block; opacity:0; animation:heroUp .85s var(--spring) forwards; }
     </style>
 </head>
 
@@ -105,8 +118,8 @@
         <div id="projects" class="page-section fade-in py-12 px-6">
             <div class="max-w-5xl mx-auto pb-32">
                 <div class="mb-16">
-                    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tight">Strategic Work.</h1>
-                    <p class="text-gray-500">A mix of academic and real-world work, campaigns, strategies, and content.</p>
+                    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tight"><span class="hero-word" style="animation-delay:.05s">Strategic</span> <span class="hero-word" style="animation-delay:.2s">Work.</span></h1>
+                    <p class="text-gray-500 reveal d1">A mix of academic and real-world work, campaigns, strategies, and content.</p>
                 </div>
 
 
@@ -114,7 +127,7 @@
 
                     <!-- Project 1 -->
                     <div class="bg-white p-5 md:p-10 rounded-3xl border border-green-100 flex flex-col md:flex-row gap-6 md:gap-10 shadow-sm hover:shadow-lg transition duration-300">
-                        <div class="md:w-1/2 flex flex-col justify-center">
+                        <div class="md:w-1/2 flex flex-col justify-center reveal-left">
                             <span class="text-xs font-bold text-[#4a7c59] uppercase tracking-widest mb-2">Economics Report</span>
                             <h2 class="text-2xl font-bold mb-4 italic leading-tight">ECON260: Nike Move to Zero</h2>
                             <p class="text-gray-600 text-sm mb-8 leading-relaxed">
@@ -127,7 +140,7 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group">
+                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group reveal-right">
                             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800"
                                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                                  alt="Nike Move to Zero" />
@@ -137,7 +150,7 @@
 
                     <!-- Project 2 -->
                     <div class="bg-white p-5 md:p-10 rounded-3xl border border-green-100 flex flex-col md:flex-row gap-6 md:gap-10 shadow-sm hover:shadow-lg transition duration-300">
-                        <div class="md:w-1/2 flex flex-col justify-center">
+                        <div class="md:w-1/2 flex flex-col justify-center reveal-left">
                             <span class="text-xs font-bold text-[#4a7c59] uppercase tracking-widest mb-2">Sustainability Strategy</span>
                             <h2 class="text-2xl font-bold mb-4 italic leading-tight">MARK230: Cradle to Cradle Certification Proposal</h2>
                             <p class="text-gray-600 text-sm mb-8 leading-relaxed">
@@ -150,7 +163,7 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group">
+                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group reveal-right">
                             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&q=80&w=800"
                                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                                  alt="Cradle to Cradle Certification" />
@@ -160,7 +173,7 @@
 
                     <!-- Project 3 -->
                     <div class="bg-white p-5 md:p-10 rounded-3xl border border-green-100 flex flex-col md:flex-row gap-6 md:gap-10 shadow-sm hover:shadow-lg transition duration-300">
-                        <div class="md:w-1/2 flex flex-col justify-center">
+                        <div class="md:w-1/2 flex flex-col justify-center reveal-left">
                             <span class="text-xs font-bold text-[#4a7c59] uppercase tracking-widest mb-2">Campaign Strategy</span>
                             <h2 class="text-2xl font-bold mb-4 italic leading-tight">Broth Records Campaign Strategy</h2>
                             <p class="text-gray-600 text-sm mb-8 leading-relaxed">
@@ -174,7 +187,7 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group">
+                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group reveal-right">
                             <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800"
                                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                                  alt="Music Campaign" />
@@ -184,7 +197,7 @@
 
                     <!-- Project 4 -->
                     <div class="bg-white p-5 md:p-10 rounded-3xl border border-green-100 flex flex-col md:flex-row gap-6 md:gap-10 shadow-sm hover:shadow-lg transition duration-300">
-                        <div class="md:w-1/2 flex flex-col justify-center">
+                        <div class="md:w-1/2 flex flex-col justify-center reveal-left">
                             <span class="text-xs font-bold text-[#4a7c59] uppercase tracking-widest mb-2">Strategic Report</span>
                             <h2 class="text-2xl font-bold mb-4 italic leading-tight">MARK101: Marketing Principles Final Report</h2>
                             <p class="text-gray-600 text-sm mb-8 leading-relaxed">
@@ -197,7 +210,7 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group">
+                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group reveal-right">
                             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"
                                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                                  alt="Marketing Report" />
@@ -207,7 +220,7 @@
 
                     <!-- Project 5 -->
                     <div class="bg-white p-5 md:p-10 rounded-3xl border border-green-100 flex flex-col md:flex-row gap-6 md:gap-10 shadow-sm hover:shadow-lg transition duration-300">
-                        <div class="md:w-1/2 flex flex-col justify-center">
+                        <div class="md:w-1/2 flex flex-col justify-center reveal-left">
                             <span class="text-xs font-bold text-[#4a7c59] uppercase tracking-widest mb-2">Video Content</span>
                             <h2 class="text-2xl font-bold mb-4 italic leading-tight">Social Media Ad Explainer</h2>
                             <p class="text-gray-600 text-sm mb-8 leading-relaxed">
@@ -221,7 +234,7 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group">
+                        <div class="md:w-1/2 h-48 md:h-64 bg-green-50 rounded-2xl overflow-hidden border border-green-100 relative group reveal-right">
                             <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800"
                                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                                  alt="Social Media Explainer" />
@@ -236,13 +249,13 @@
 
     <!-- Global Contact Section -->
     <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
-        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
+        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left reveal-left">
             <h2 class="text-3xl md:text-4xl font-extrabold mb-4 md:mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
             <a href="mailto:marklkhoury01@gmail.com" class="font-bold text-xl mb-4 hover:underline block">marklkhoury01@gmail.com</a>
             <p class="text-green-100 max-w-sm">Always open to a conversation, whether it's a role, a project, or just a coffee.</p>
         </div>
 
-        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
+        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center reveal-right">
             <form id="contact-form" class="space-y-6 max-w-md w-full">
                 <div class="grid grid-cols-2 gap-4">
                     <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required />
@@ -296,6 +309,20 @@
             }
             btn.textContent = 'Send'; btn.disabled = false;
         });
+
+        (function(){
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.clip-reveal,.border-animate').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
     </script>
 </body>
 </html>

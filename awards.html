@@ -67,6 +67,19 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* === Scroll Animations === */
+        :root { --spring: cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal { opacity:0; transform:translateY(48px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-left { opacity:0; transform:translateX(-56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-right { opacity:0; transform:translateX(56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-scale { opacity:0; transform:scale(.88) translateY(28px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal.in-view,.reveal-left.in-view,.reveal-right.in-view,.reveal-scale.in-view { opacity:1; transform:none; }
+        .clip-reveal { overflow:hidden; display:block; }
+        .clip-reveal-inner { display:block; transform:translateY(110%); transition:transform .85s var(--spring); }
+        .clip-reveal.in-view .clip-reveal-inner { transform:translateY(0); }
+        .d1{transition-delay:.08s} .d2{transition-delay:.18s} .d3{transition-delay:.28s} .d4{transition-delay:.38s} .d5{transition-delay:.48s} .d6{transition-delay:.58s}
+        @keyframes heroUp { from{opacity:0;transform:translateY(44px)} to{opacity:1;transform:translateY(0)} }
+        .hero-word { display:inline-block; opacity:0; animation:heroUp .85s var(--spring) forwards; }
     </style>
 </head>
 
@@ -104,13 +117,13 @@
     <main class="flex-grow pt-20">
         <div id="awards" class="page-section fade-in py-12 px-6">
             <div class="max-w-6xl mx-auto pb-40 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tight">Awards.</h1>
-                <p class="text-gray-500 mb-16">Recognition of academic and professional development.</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tight"><span class="hero-word" style="animation-delay:.05s">Awards.</span></h1>
+                <p class="text-gray-500 mb-16 reveal d1">Recognition of academic and professional development.</p>
 
                 <!-- Main Awards Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12 md:mb-24">
                     <!-- Award 1 -->
-                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group reveal-scale d1">
                         <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
                             <i class="fas fa-star"></i>
                         </div>
@@ -120,7 +133,7 @@
                     </div>
 
                     <!-- Award: Business Scholarship -->
-                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group reveal-scale d2">
                         <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
@@ -130,7 +143,7 @@
                     </div>
 
                     <!-- Award 3 -->
-                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group reveal-scale d3">
                         <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
                             <i class="fas fa-globe-asia"></i>
                         </div>
@@ -140,7 +153,7 @@
                     </div>
 
                     <!-- Award 5 -->
-                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group">
+                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-green-100 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 group reveal-scale d4">
                         <div class="w-16 h-16 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-[#4a7c59] group-hover:text-white transition">
                             <i class="fas fa-medal"></i>
                         </div>
@@ -151,10 +164,10 @@
                 </div>
 
                 <!-- Academic Rankings Section -->
-                <h2 class="text-3xl font-extrabold mb-6 md:mb-12 italic uppercase tracking-tight">Academic Rankings.</h2>
+                <h2 class="text-3xl font-extrabold mb-6 md:mb-12 italic uppercase tracking-tight"><span class="clip-reveal"><span class="clip-reveal-inner">Academic Rankings.</span></span></h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 md:mb-24 text-left">
 
-                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6 reveal-scale d1">
                         <div class="w-12 h-12 flex-shrink-0 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-xl">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -165,7 +178,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6 reveal-scale d2">
                         <div class="w-12 h-12 flex-shrink-0 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-xl">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -176,7 +189,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6 reveal-scale d3">
                         <div class="w-12 h-12 flex-shrink-0 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-xl">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -187,7 +200,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-start gap-6 reveal-scale d4">
                         <div class="w-12 h-12 flex-shrink-0 bg-green-50 text-[#4a7c59] rounded-full flex items-center justify-center text-xl">
                             <i class="fas fa-chart-bar"></i>
                         </div>
@@ -201,12 +214,12 @@
                 </div>
 
                 <!-- Certifications Section -->
-                <h2 class="text-3xl font-extrabold mb-6 md:mb-12 italic uppercase tracking-tight">Certifications & Credentials.</h2>
+                <h2 class="text-3xl font-extrabold mb-6 md:mb-12 italic uppercase tracking-tight"><span class="clip-reveal"><span class="clip-reveal-inner">Certifications & Credentials.</span></span></h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-left">
 
                     <!-- Cert: Digital Advertising -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d1">
                         <div class="text-[#ff7a59] text-3xl mb-4"><i class="fab fa-hubspot"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Digital Advertising</h4>
@@ -216,7 +229,7 @@
                     </div>
 
                     <!-- Cert: Effective Leadership -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d2">
                         <div class="text-[#0096D6] text-3xl mb-4"><i class="fas fa-laptop-code"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Effective Leadership</h4>
@@ -226,7 +239,7 @@
                     </div>
 
                     <!-- Cert: Google -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d3">
                         <div class="text-[#4285F4] text-3xl mb-4"><i class="fab fa-google"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Digital Marketing Fundamentals</h4>
@@ -236,7 +249,7 @@
                     </div>
 
                     <!-- LinkedIn: Ethics AI -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d4">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Ethics in Age of Generative AI</h4>
@@ -246,7 +259,7 @@
                     </div>
 
                     <!-- LinkedIn: Gen AI for Marketers -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d1">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Gen AI for Digital Marketers</h4>
@@ -256,7 +269,7 @@
                     </div>
 
                     <!-- LinkedIn: Prompt Engineering -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d2">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Prompt Engineering</h4>
@@ -266,7 +279,7 @@
                     </div>
 
                     <!-- LinkedIn: Data Analysis -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d3">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">OpenAI Advanced Data Analysis</h4>
@@ -276,7 +289,7 @@
                     </div>
 
                     <!-- LinkedIn: Generative AI vs Traditional AI -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d4">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Generative AI vs. Traditional AI</h4>
@@ -286,7 +299,7 @@
                     </div>
 
                     <!-- LinkedIn: Generative AI Thoughtful Search -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d1">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Generative AI: The Evolution of Thoughtful Online Search</h4>
@@ -296,7 +309,7 @@
                     </div>
 
                     <!-- LinkedIn: Improving Insights with OpenAI -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d2">
                         <div class="text-[#0a66c2] text-3xl mb-4"><i class="fab fa-linkedin"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Improving Insights with OpenAI's Advanced Data Analysis</h4>
@@ -306,7 +319,7 @@
                     </div>
 
                     <!-- Cert: Food Handler -->
-                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full">
+                    <div class="bg-white p-6 rounded-2xl border border-green-100 hover:shadow-md transition flex flex-col justify-between h-full reveal-scale d3">
                         <div class="text-gray-400 text-3xl mb-4"><i class="fas fa-utensils"></i></div>
                         <div>
                             <h4 class="font-bold text-gray-900 text-sm leading-tight mb-2">Food Handler Basics</h4>
@@ -322,13 +335,13 @@
 
     <!-- Global Contact Section -->
     <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
-        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
+        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left reveal-left">
             <h2 class="text-3xl md:text-4xl font-extrabold mb-4 md:mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
             <a href="mailto:marklkhoury01@gmail.com" class="font-bold text-xl mb-4 hover:underline block">marklkhoury01@gmail.com</a>
             <p class="text-green-100 max-w-sm">Always open to a conversation, whether it's a role, a project, or just a coffee.</p>
         </div>
 
-        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
+        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center reveal-right">
             <form id="contact-form" class="space-y-6 max-w-md w-full">
                 <div class="grid grid-cols-2 gap-4">
                     <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required />
@@ -382,6 +395,20 @@
             }
             btn.textContent = 'Send'; btn.disabled = false;
         });
+
+        (function(){
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.clip-reveal,.border-animate').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
     </script>
 </body>
 </html>

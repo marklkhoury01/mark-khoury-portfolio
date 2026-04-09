@@ -67,6 +67,19 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* === Scroll Animations === */
+        :root { --spring: cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal { opacity:0; transform:translateY(48px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-left { opacity:0; transform:translateX(-56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-right { opacity:0; transform:translateX(56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal-scale { opacity:0; transform:scale(.88) translateY(28px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+        .reveal.in-view,.reveal-left.in-view,.reveal-right.in-view,.reveal-scale.in-view { opacity:1; transform:none; }
+        .clip-reveal { overflow:hidden; display:block; }
+        .clip-reveal-inner { display:block; transform:translateY(110%); transition:transform .85s var(--spring); }
+        .clip-reveal.in-view .clip-reveal-inner { transform:translateY(0); }
+        .d1{transition-delay:.08s} .d2{transition-delay:.18s} .d3{transition-delay:.28s} .d4{transition-delay:.38s} .d5{transition-delay:.48s} .d6{transition-delay:.58s}
+        @keyframes heroUp { from{opacity:0;transform:translateY(44px)} to{opacity:1;transform:translateY(0)} }
+        .hero-word { display:inline-block; opacity:0; animation:heroUp .85s var(--spring) forwards; }
     </style>
 </head>
 
@@ -103,10 +116,10 @@
             <div class="max-w-4xl mx-auto pb-32">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6">
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tight">Resume.</h1>
-                        <p class="text-gray-500">Experience, Education & Qualifications.</p>
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tight"><span class="hero-word" style="animation-delay:.05s">Resume.</span></h1>
+                        <p class="text-gray-500 reveal d1">Experience, Education & Qualifications.</p>
                     </div>
-                    <a href="images/Mark_Khoury_Resume.pdf" class="bg-white border-2 border-[#4a7c59] text-[#4a7c59] hover:bg-[#4a7c59] hover:text-white transition px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest flex items-center gap-2">
+                    <a href="images/Mark_Khoury_Resume.pdf" class="bg-white border-2 border-[#4a7c59] text-[#4a7c59] hover:bg-[#4a7c59] hover:text-white transition px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest flex items-center gap-2 reveal d2">
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
@@ -114,7 +127,7 @@
                 <div class="space-y-8">
 
                     <!-- Professional Background -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm reveal-scale">
                         <h2 class="text-2xl font-extrabold mb-6 flex items-center gap-3 text-gray-900">
                             <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-user-tie"></i></span>
                             Professional Background
@@ -128,7 +141,7 @@
                     </div>
 
                     <!-- Education Section -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm reveal-scale">
                         <h2 class="text-2xl font-extrabold mb-8 flex items-center gap-3 text-gray-900">
                             <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-graduation-cap"></i></span>
                             Education
@@ -170,7 +183,7 @@
                     </div>
 
                     <!-- Experience Section -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm reveal-scale">
                         <h2 class="text-2xl font-extrabold mb-8 flex items-center gap-3 text-gray-900">
                             <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-briefcase"></i></span>
                             Experience
@@ -280,7 +293,7 @@
                     </div>
 
                     <!-- Leadership Section -->
-                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-green-100 shadow-sm reveal-scale">
                         <h2 class="text-2xl font-extrabold mb-8 flex items-center gap-3 text-gray-900">
                             <span class="w-10 h-10 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-lg"><i class="fas fa-users"></i></span>
                             Leadership
@@ -322,7 +335,7 @@
                     <!-- Skills & Additional Involvement Grid -->
                     <div class="grid md:grid-cols-2 gap-8">
                         <!-- Skills -->
-                        <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm">
+                        <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm reveal-left">
                             <h2 class="text-xl font-extrabold mb-6 flex items-center gap-3 text-gray-900">
                                 <span class="w-8 h-8 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-sm"><i class="fas fa-tools"></i></span>
                                 Skills & Interests
@@ -345,7 +358,7 @@
                         </div>
 
                         <!-- Additional Involvement -->
-                        <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm">
+                        <div class="bg-white p-8 rounded-3xl border border-green-100 shadow-sm reveal-right">
                             <h2 class="text-xl font-extrabold mb-6 flex items-center gap-3 text-gray-900">
                                 <span class="w-8 h-8 rounded-full bg-green-100 text-[#4a7c59] flex items-center justify-center text-sm"><i class="fas fa-handshake"></i></span>
                                 Involvement
@@ -378,12 +391,12 @@
 
     <!-- Global Contact Section -->
     <section id="contact-section" class="flex flex-col md:flex-row min-h-[500px] border-t border-green-100 mt-auto">
-        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left">
+        <div class="bg-[#4a7c59] text-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center text-left reveal-left">
             <h2 class="text-3xl md:text-4xl font-extrabold mb-4 md:mb-6 italic uppercase tracking-tight">Get in Touch.</h2>
             <a href="mailto:marklkhoury01@gmail.com" class="font-bold text-xl mb-4 hover:underline block">marklkhoury01@gmail.com</a>
             <p class="text-green-100 max-w-sm">Always open to a conversation, whether it's a role, a project, or just a coffee.</p>
         </div>
-        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center">
+        <div class="bg-white p-12 md:p-24 md:w-1/2 flex flex-col justify-center reveal-right">
             <form id="contact-form" class="space-y-6 max-w-md w-full">
                 <div class="grid grid-cols-2 gap-4">
                     <input type="text" name="firstName" placeholder="First Name" class="bg-transparent border-b-2 border-green-100 focus:border-[#4a7c59] outline-none py-2 transition text-gray-800 placeholder-gray-400" required>
@@ -437,6 +450,20 @@
             }
             btn.textContent = 'Send'; btn.disabled = false;
         });
+
+        (function(){
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.clip-reveal,.border-animate').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
     </script>
 </body>
 </html>
