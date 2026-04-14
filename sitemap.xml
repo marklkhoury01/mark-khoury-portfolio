@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://mark-khoury-e-portfolio.vercel.app/</loc>
+    <loc>https://marklkhoury.com/</loc>
+    <lastmod>2026-04-14</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://mark-khoury-e-portfolio.vercel.app/projects.html</loc>
+    <loc>https://marklkhoury.com/projects.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mark-khoury-e-portfolio.vercel.app/resume.html</loc>
+    <loc>https://marklkhoury.com/resume.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mark-khoury-e-portfolio.vercel.app/awards.html</loc>
+    <loc>https://marklkhoury.com/awards.html</loc>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.8</priority>
   </url>
 
