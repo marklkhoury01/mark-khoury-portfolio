@@ -182,6 +182,63 @@
             border-radius: 4px;
         }
         .gallery-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Testimonial cards — hardcoded so Tailwind CDN parsing can't break them */
+        .testimonial-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid #dcfce7;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .testimonial-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+            transform: translateY(-4px);
+        }
+        .testimonial-quote {
+            font-size: 5rem;
+            color: #4a7c59;
+            position: absolute;
+            top: 1.25rem;
+            left: 2rem;
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+        .testimonial-body {
+            position: relative;
+            z-index: 10;
+            flex-grow: 1;
+            padding-top: 1rem;
+        }
+        .testimonial-body p {
+            color: #4b5563;
+            font-size: 0.875rem;
+            line-height: 1.75;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .testimonial-footer {
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid #f0fdf4;
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        .testimonial-footer .role {
+            font-weight: 700;
+            color: #4a7c59;
+            font-size: 0.875rem;
+        }
+        .testimonial-footer .org {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
     </style>
 </head>
 
@@ -375,36 +432,36 @@
                     <p class=”reveal stagger-1 text-gray-500 mt-2 text-sm”>What others had to say.</p>
                 </div>
                 <div class=”max-w-7xl mx-auto grid md:grid-cols-3 gap-8”>
-                    <div class=”reveal-scale d1 bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300”>
-                        <div class=”text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif”>”</div>
-                        <div class=”relative z-10 flex-grow pt-4”>
-                            <p class=”text-gray-600 text-sm leading-relaxed italic mb-6”>”Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure.”</p>
+                    <div class=”reveal-scale d1 testimonial-card”>
+                        <div class=”testimonial-quote”>”</div>
+                        <div class=”testimonial-body”>
+                            <p>”Mark consistently creates <strong>inclusive, engaging environments</strong> that lift confidence and performance. His preparation, communication, and ability to encourage participation make a clear impact on how people collaborate and respond under pressure.”</p>
                         </div>
-                        <div class=”relative z-10 border-t border-green-50 pt-4 mt-auto”>
-                            <p class=”font-bold text-[#4a7c59] text-sm”>Associate Professor</p>
-                            <p class=”text-xs text-gray-400 mt-1”>University of Wollongong</p>
-                        </div>
-                    </div>
-
-                    <div class=”reveal-scale d2 bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300”>
-                        <div class=”text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif”>”</div>
-                        <div class=”relative z-10 flex-grow pt-4”>
-                            <p class=”text-gray-600 text-sm leading-relaxed italic mb-6”>”Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics.”</p>
-                        </div>
-                        <div class=”relative z-10 border-t border-green-50 pt-4 mt-auto”>
-                            <p class=”font-bold text-[#4a7c59] text-sm”>Program Mentor</p>
-                            <p class=”text-xs text-gray-400 mt-1”>University of Wollongong</p>
+                        <div class=”testimonial-footer”>
+                            <p class=”role”>Associate Professor</p>
+                            <p class=”org”>University of Wollongong</p>
                         </div>
                     </div>
 
-                    <div class=”reveal-scale d3 bg-white p-6 md:p-10 rounded-3xl relative border border-green-100 shadow-sm hover:shadow-md transition flex flex-col h-full transform hover:-translate-y-1 duration-300”>
-                        <div class=”text-6xl text-[#4a7c59] absolute top-6 left-8 opacity-20 font-serif”>”</div>
-                        <div class=”relative z-10 flex-grow pt-4”>
-                            <p class=”text-gray-600 text-sm leading-relaxed italic mb-6”>”Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with.”</p>
+                    <div class=”reveal-scale d2 testimonial-card”>
+                        <div class=”testimonial-quote”>”</div>
+                        <div class=”testimonial-body”>
+                            <p>”Mark is an excellent facilitator who brings people together. Participants were actively engaged, supporting one another, and responding positively throughout. His ability to <strong>guide rather than dictate</strong> creates strong group dynamics.”</p>
                         </div>
-                        <div class=”relative z-10 border-t border-green-50 pt-4 mt-auto”>
-                            <p class=”font-bold text-[#4a7c59] text-sm”>Peer Academic Programs Manager</p>
-                            <p class=”text-xs text-gray-400 mt-1”>University of Wollongong</p>
+                        <div class=”testimonial-footer”>
+                            <p class=”role”>Program Mentor</p>
+                            <p class=”org”>University of Wollongong</p>
+                        </div>
+                    </div>
+
+                    <div class=”reveal-scale d3 testimonial-card”>
+                        <div class=”testimonial-quote”>”</div>
+                        <div class=”testimonial-body”>
+                            <p>”Mark has exceeded expectations through his ability to take feedback, adapt quickly, and continually improve. In a short period, he has developed the confidence and capability of a <strong>highly experienced leader</strong>, driven by a genuine commitment to those he works with.”</p>
+                        </div>
+                        <div class=”testimonial-footer”>
+                            <p class=”role”>Peer Academic Programs Manager</p>
+                            <p class=”org”>University of Wollongong</p>
                         </div>
                     </div>
                 </div>
