@@ -428,31 +428,47 @@
       .inv-card .m{color:var(--muted); font-size:12.5px}
       .inv-grid{display:grid; gap:12px}
 
-      /* skills */
-      .skills-card{
+      /* skills grid */
+      .skills-grid{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      @media (max-width:720px){ .skills-grid{ grid-template-columns:1fr } }
+
+      .sk-card{
         background: var(--card);
         border-radius: var(--radius);
         box-shadow: var(--shadow);
-        padding: 30px 32px;
+        padding: 28px 30px;
       }
-      .skills-label{
-        font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-        color:var(--muted); margin: 0 0 12px;
+      .sk-head{
+        display:flex; align-items:center; gap:14px;
+        margin-bottom: 18px;
       }
-      .skill-cloud{
-        display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 26px;
+      .sk-icon{
+        width:42px; height:42px; border-radius:50%;
+        background: var(--mint); color: var(--mint-deep);
+        display:grid; place-items:center;
+        flex:none;
       }
-      .skill-cloud:last-child{margin-bottom:0}
-      .skill-tag{
-        display:inline-flex; align-items:center; gap:8px;
-        padding: 10px 16px;
-        background: var(--mint); color:var(--mint-deep);
+      .sk-icon svg{ width:20px; height:20px }
+      .sk-name{
+        font-size:17px; font-weight:800;
+        color: var(--ink); margin:0;
+        letter-spacing:-.01em;
+      }
+      .sk-pills{
+        display:flex; flex-wrap:wrap; gap:10px;
+      }
+      .sk-pill{
+        display:inline-flex; align-items:center;
+        padding: 11px 18px;
+        background: var(--mint); color: var(--mint-deep);
         border-radius: var(--radius-pill);
-        font-size:13px; font-weight:700;
-        border:1px solid color-mix(in srgb, var(--mint-deep) 15%, transparent);
-      }
-      .interests{
-        font-size:14.5px; color:var(--text); line-height:1.65;
+        font-size:13.5px; font-weight:700;
+        border:1px solid color-mix(in srgb, var(--mint-deep) 18%, transparent);
+        line-height:1.3;
       }
 
       /* Timeline fill bar (solid line that grows over the dashed one as you scroll) */
@@ -862,28 +878,116 @@
         </div>
       </section>
 
-      <!-- Skills & Interests -->
+      <!-- Skills -->
       <section class="section" id="skills">
         <div class="wrap">
           <div class="section-title reveal">
             <div class="dot">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 22 12 18l-5.5 4L8 14.5 3 10l6.5-1.5z"/></svg>
             </div>
-            <h2>Skills &amp; Interests</h2>
+            <h2>Skills</h2>
             <div class="count">05 · Abilities</div>
           </div>
 
-          <div class="skills-card reveal">
-            <div class="skills-label">Technical Skills</div>
-            <div class="skill-cloud">
-              <span class="skill-tag">Google Workspace</span>
-              <span class="skill-tag">Canva</span>
-              <span class="skill-tag">Excel</span>
-              <span class="skill-tag">Meta Business Suite</span>
+          <div class="skills-grid">
+
+            <!-- Design & Content -->
+            <div class="sk-card reveal d1">
+              <div class="sk-head">
+                <div class="sk-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <h3 class="sk-name">Design &amp; Content</h3>
+              </div>
+              <div class="sk-pills">
+                <span class="sk-pill">Canva</span>
+                <span class="sk-pill">Gamma</span>
+                <span class="sk-pill">CapCut</span>
+              </div>
             </div>
 
-            <div class="skills-label">Interests</div>
-            <p class="interests">Sports Marketing, Fan Engagement, Strategic Sponsorship, Broadcast Rights, Football (Soccer), NRL, Basketball, Tennis, Global Sport Industry Trends.</p>
+            <!-- Productivity & Collaboration -->
+            <div class="sk-card reveal d2">
+              <div class="sk-head">
+                <div class="sk-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </div>
+                <h3 class="sk-name">Productivity &amp; Collaboration</h3>
+              </div>
+              <div class="sk-pills">
+                <span class="sk-pill">Google Workspace</span>
+                <span class="sk-pill">Microsoft Office</span>
+                <span class="sk-pill">Moodle</span>
+                <span class="sk-pill">Zoom / Teams</span>
+              </div>
+            </div>
+
+            <!-- Marketing & Social -->
+            <div class="sk-card reveal d1">
+              <div class="sk-head">
+                <div class="sk-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3 class="sk-name">Marketing &amp; Social</h3>
+              </div>
+              <div class="sk-pills">
+                <span class="sk-pill">Meta Business Suite</span>
+                <span class="sk-pill">Instagram</span>
+                <span class="sk-pill">LinkedIn</span>
+                <span class="sk-pill">Google Analytics</span>
+                <span class="sk-pill">HubSpot</span>
+                <span class="sk-pill">Kahoot</span>
+              </div>
+            </div>
+
+            <!-- Web & Tech -->
+            <div class="sk-card reveal d2">
+              <div class="sk-head">
+                <div class="sk-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3 class="sk-name">Web &amp; Tech</h3>
+              </div>
+              <div class="sk-pills">
+                <span class="sk-pill">GitHub</span>
+                <span class="sk-pill">Vercel</span>
+                <span class="sk-pill">Claude / AI Prompting</span>
+                <span class="sk-pill">ChatGPT / Generative AI</span>
+                <span class="sk-pill">Excel Formulas &amp; Data Formatting</span>
+              </div>
+            </div>
+
+            <!-- Event & Operations -->
+            <div class="sk-card reveal d1">
+              <div class="sk-head">
+                <div class="sk-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3 class="sk-name">Event &amp; Operations</h3>
+              </div>
+              <div class="sk-pills">
+                <span class="sk-pill">Event Registration &amp; Participant Communications</span>
+                <span class="sk-pill">Sponsorship Coordination</span>
+                <span class="sk-pill">Volunteer &amp; Team Coordination</span>
+              </div>
+            </div>
+
+            <!-- Education & Facilitation -->
+            <div class="sk-card reveal d2">
+              <div class="sk-head">
+                <div class="sk-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3 class="sk-name">Education &amp; Facilitation</h3>
+              </div>
+              <div class="sk-pills">
+                <span class="sk-pill">PASS Facilitation</span>
+                <span class="sk-pill">Session Planning &amp; Curriculum Design</span>
+                <span class="sk-pill">Peer Mentoring</span>
+                <span class="sk-pill">Public Speaking &amp; Presentation Delivery</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
