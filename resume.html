@@ -329,6 +329,7 @@
         box-shadow: 0 4px 12px -4px rgba(26,58,42,.15);
         display:grid; place-items:center;
         color:var(--mint-deep);
+        transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
       }
       .tl-node.active .ring{
         background: var(--ink);
@@ -340,6 +341,10 @@
         content:""; position:absolute; left:100%; top:50%;
         width:22px; height:1.5px; background: var(--mint-2);
         transform: translateY(-50%);
+        transition: background 0.35s ease;
+      }
+      .tl-node.active::after{
+        background: var(--ink);
       }
       .tl-card{
         background:var(--card);
@@ -450,22 +455,18 @@
         font-size:14.5px; color:var(--text); line-height:1.65;
       }
 
-      /* Traveling dot on timeline */
-      .tl-dot {
+      /* Timeline fill bar (solid line that grows over the dashed one as you scroll) */
+      .tl-fill {
         position: absolute;
-        left: 24px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--ink);
-        border: 2.5px solid var(--bg);
-        box-shadow: 0 0 0 1.5px var(--ink);
-        z-index: 3;
-        pointer-events: none;
+        left: 29px;
         top: 28px;
-        will-change: top;
-        transition: top 0.08s linear;
+        width: 2px;
+        height: 0;
+        background: var(--ink);
+        z-index: 2;
+        pointer-events: none;
       }
+
 
       /* Scroll reveal (matches other pages) */
       :root { --spring: cubic-bezier(0.16, 1, 0.3, 1); }
@@ -918,32 +919,44 @@
         }, { threshold: 0.12 });
         revealEls.forEach(el => observer.observe(el));
 
-        // Traveling dot: one dot per timeline that slides along the dashed line with scroll
+        // Timeline fill: inject a solid bar that grows over the dashed line as you scroll,
+        // and activate node circles as you pass each one.
         document.querySelectorAll('.timeline').forEach(tl => {
-            const dot = document.createElement('div');
-            dot.className = 'tl-dot';
-            tl.appendChild(dot);
+            const fill = document.createElement('div');
+            fill.className = 'tl-fill';
+            tl.appendChild(fill);
         });
 
-        function updateTimelineDots() {
+        function updateTimelines() {
             const mid = window.innerHeight / 2;
+
             document.querySelectorAll('.timeline').forEach(tl => {
-                const dot = tl.querySelector('.tl-dot');
-                if (!dot) return;
+                const fill = tl.querySelector('.tl-fill');
                 const rect = tl.getBoundingClientRect();
                 const lineStart = 28;
                 const lineEnd = tl.offsetHeight - 28;
                 const lineLength = lineEnd - lineStart;
-                // how far the viewport midpoint is into the line
+
+                // Grow the solid fill bar to wherever the viewport mid sits on the line
                 const midInTl = mid - rect.top;
-                let progress = (midInTl - lineStart) / lineLength;
-                progress = Math.max(0, Math.min(1, progress));
-                dot.style.top = (lineStart + progress * lineLength) + 'px';
+                const fillHeight = Math.max(0, Math.min(lineLength, midInTl - lineStart));
+                fill.style.height = fillHeight + 'px';
+
+                // Activate each node whose centre has been passed by the viewport mid
+                tl.querySelectorAll('.tl-node').forEach(node => {
+                    const nodeRect = node.getBoundingClientRect();
+                    const nodeCentre = nodeRect.top + nodeRect.height / 2;
+                    if (nodeCentre <= mid) {
+                        node.classList.add('active');
+                    } else {
+                        node.classList.remove('active');
+                    }
+                });
             });
         }
 
-        window.addEventListener('scroll', updateTimelineDots, { passive: true });
-        updateTimelineDots();
+        window.addEventListener('scroll', updateTimelines, { passive: true });
+        updateTimelines();
     </script>
 
 </body>
