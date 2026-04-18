@@ -56,828 +56,857 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:       #f5f5f0;
-    --ink:      #1a3a2a;
-    --ink-2:    #244a36;
-    --text:     #2c3a32;
-    --muted:    #6d7a72;
-    --mint:     #d4edda;
-    --mint-2:   #b8e3c4;
-    --mint-deep:#1f7a48;
-    --card:     #ffffff;
-    --rule:     #e6e8e1;
-    --shadow:   0 1px 2px rgba(26,58,42,.04), 0 10px 30px -12px rgba(26,58,42,.12);
-    --shadow-lg:0 1px 2px rgba(26,58,42,.04), 0 28px 60px -24px rgba(26,58,42,.18);
-    --radius:   18px;
-    --radius-sm:12px;
-    --radius-pill:999px;
-    --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:var(--sans);
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-    font-size:15px;
-    line-height:1.55;
-  }
+    <!-- Fonts + icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  .wrap{max-width:1160px; margin:0 auto; padding:0 32px}
-  @media (max-width:720px){ .wrap{padding:0 20px} }
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 
-  /* top bar */
-  .topbar{
-    position:sticky; top:0; z-index:40;
-    background: color-mix(in srgb, var(--bg) 92%, transparent);
-    backdrop-filter: blur(10px) saturate(140%);
-    border-bottom:1px solid var(--rule);
-  }
-  .topbar .row{
-    display:flex; align-items:center; justify-content:space-between;
-    height:78px;
-  }
-  .brand .nm{
-    font-weight:800; letter-spacing:.12em; color:var(--ink); font-size:15px;
-  }
-  .brand .tag{
-    font-size:10.5px; letter-spacing:.22em; color:var(--mint-deep); font-weight:600;
-    text-transform:uppercase; margin-top:2px;
-  }
-  nav.primary{
-    display:flex; gap:36px;
-    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; font-weight:600;
-    color:var(--muted);
-  }
-  nav.primary a{color:inherit; text-decoration:none}
-  nav.primary a.active{color:var(--mint-deep)}
-  nav.primary a:hover{color:var(--ink)}
+    <style>
+      :root{
+        --bg:       #f7f9f7;
+        --ink:      #1a3a2a;
+        --ink-2:    #244a36;
+        --text:     #2c3a32;
+        --muted:    #6d7a72;
+        --mint:     #d4edda;
+        --mint-2:   #b8e3c4;
+        --mint-deep:#4a7c59;
+        --card:     #ffffff;
+        --rule:     #e6e8e1;
+        --shadow:   0 1px 2px rgba(26,58,42,.04), 0 10px 30px -12px rgba(26,58,42,.12);
+        --shadow-lg:0 1px 2px rgba(26,58,42,.04), 0 28px 60px -24px rgba(26,58,42,.18);
+        --radius:   18px;
+        --radius-sm:12px;
+        --radius-pill:999px;
+        --sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+      *{box-sizing:border-box}
+      html,body{margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{
+        font-family:var(--sans);
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing:antialiased;
+        text-rendering:optimizeLegibility;
+        font-size:15px;
+        line-height:1.55;
+      }
 
-  /* hero */
-  header.hero{ padding: 72px 0 36px }
-  .hero-row{
-    display:grid; grid-template-columns: 1fr auto; gap:24px; align-items:end;
-  }
-  .hero-title{
-    font-weight:800; font-style:italic;
-    font-size: clamp(56px, 8vw, 96px);
-    letter-spacing:-.03em;
-    color:var(--ink);
-    margin:0; line-height:.95;
-  }
-  .hero-title::after{ content:"."; color:var(--mint-deep) }
-  .hero-sub{ color:var(--muted); margin-top:14px; font-size:16px }
-  .download{
-    display:inline-flex; align-items:center; gap:10px;
-    padding: 12px 20px;
-    border-radius: var(--radius-pill);
-    border:1.5px solid var(--ink);
-    color:var(--ink); text-decoration:none; font-weight:600;
-    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-    background: transparent;
-    transition: background .2s ease, color .2s ease;
-  }
-  .download:hover{ background:var(--ink); color:var(--bg) }
-  .download svg{width:14px;height:14px}
+      /* Glass nav (shared with other pages) */
+      .glass{
+        background: rgba(247, 249, 247, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
 
-  /* stats strip */
-  .stats{
-    margin-top: 40px;
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 6px;
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:0;
-    position:relative;
-    overflow:hidden;
-  }
-  .stats::before{
-    content:""; position:absolute; inset:0;
-    background:
-      radial-gradient(1200px 120px at 0% 0%, color-mix(in srgb, var(--mint) 55%, transparent), transparent 60%);
-    pointer-events:none;
-  }
-  .stat{
-    position:relative; z-index:1;
-    padding: 32px 28px;
-    border-right: 1px solid var(--rule);
-    display:flex; flex-direction:column; gap:10px;
-  }
-  .stat:last-child{border-right:0}
-  .stat .icon{
-    width:42px; height:42px; border-radius:12px;
-    background:var(--mint); color:var(--mint-deep);
-    display:grid; place-items:center;
-    margin-bottom:6px;
-  }
-  .stat .icon svg{width:20px;height:20px}
-  .stat .v{
-    font-size: 42px;
-    line-height:1;
-    font-weight:800; letter-spacing:-.02em;
-    color:var(--ink);
-    display:flex; align-items:baseline; gap:4px;
-  }
-  .stat .v small{
-    font-size:18px; color:var(--mint-deep); font-weight:700;
-    letter-spacing:0;
-  }
-  .stat .k{
-    font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--muted);
-  }
-  .stat .sub{font-size:12.5px; color:var(--muted)}
-  @media (max-width: 900px){
-    .stats{grid-template-columns: repeat(2,1fr)}
-    .stat:nth-child(2){border-right:0}
-    .stat:nth-child(-n+2){border-bottom:1px solid var(--rule)}
-  }
-  @media (max-width: 520px){
-    .stats{grid-template-columns:1fr}
-    .stat{border-right:0; border-bottom:1px solid var(--rule)}
-    .stat:last-child{border-bottom:0}
-  }
+      .wrap{max-width:1160px; margin:0 auto; padding:0 32px}
+      @media (max-width:720px){ .wrap{padding:0 20px} }
 
-  /* section head */
-  .section{padding: 56px 0}
-  .section-title{
-    display:flex; align-items:center; gap:14px;
-    margin: 0 0 28px;
-    color:var(--ink);
-  }
-  .section-title .dot{
-    width:44px; height:44px; border-radius:50%;
-    background:var(--mint); color:var(--mint-deep);
-    display:grid; place-items:center;
-    flex:none;
-  }
-  .section-title .dot svg{width:22px;height:22px}
-  .section-title h2{
-    margin:0; font-weight:800; font-size: 30px; letter-spacing:-.01em;
-  }
-  .section-title .count{
-    margin-left:auto;
-    font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--muted);
-  }
+      /* hero */
+      header.hero{ padding: 72px 0 36px }
+      .hero-row{
+        display:grid; grid-template-columns: 1fr auto; gap:24px; align-items:end;
+      }
+      @media (max-width:600px){
+        .hero-row{ grid-template-columns:1fr; }
+        .download{ align-self:flex-start; }
+      }
+      .hero-title{
+        font-weight:800; font-style:italic;
+        font-size: clamp(56px, 8vw, 96px);
+        letter-spacing:-.03em;
+        color:var(--ink);
+        margin:0; line-height:.95;
+      }
+      .hero-title::after{ content:"."; color:var(--mint-deep) }
+      .hero-sub{ color:var(--muted); margin-top:14px; font-size:16px }
+      .download{
+        display:inline-flex; align-items:center; gap:10px;
+        padding: 12px 20px;
+        border-radius: var(--radius-pill);
+        border:1.5px solid var(--ink);
+        color:var(--ink); text-decoration:none; font-weight:600;
+        font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+        background: transparent;
+        transition: background .2s ease, color .2s ease;
+        white-space:nowrap;
+      }
+      .download:hover{ background:var(--ink); color:var(--bg) }
+      .download svg{width:14px;height:14px;flex:none}
 
-  /* cards */
-  .card{
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 36px;
-  }
-  .card.lg{padding: 40px}
+      /* stats strip */
+      .stats{
+        margin-top: 40px;
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 6px;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap:0;
+        position:relative;
+        overflow:hidden;
+      }
+      .stats::before{
+        content:""; position:absolute; inset:0;
+        background:
+          radial-gradient(1200px 120px at 0% 0%, color-mix(in srgb, var(--mint) 55%, transparent), transparent 60%);
+        pointer-events:none;
+      }
+      .stat{
+        position:relative; z-index:1;
+        padding: 32px 28px;
+        border-right: 1px solid var(--rule);
+        display:flex; flex-direction:column; gap:10px;
+      }
+      .stat:last-child{border-right:0}
+      .stat .icon{
+        width:42px; height:42px; border-radius:12px;
+        background:var(--mint); color:var(--mint-deep);
+        display:grid; place-items:center;
+        margin-bottom:6px;
+      }
+      .stat .icon svg{width:20px;height:20px}
+      .stat .v{
+        font-size: 42px;
+        line-height:1;
+        font-weight:800; letter-spacing:-.02em;
+        color:var(--ink);
+        display:flex; align-items:baseline; gap:4px;
+      }
+      .stat .v small{
+        font-size:18px; color:var(--mint-deep); font-weight:700;
+        letter-spacing:0;
+      }
+      .stat .k{
+        font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+        color:var(--muted);
+      }
+      .stat .sub{font-size:12.5px; color:var(--muted)}
+      @media (max-width: 900px){
+        .stats{grid-template-columns: repeat(2,1fr)}
+        .stat:nth-child(2){border-right:0}
+        .stat:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+      }
+      @media (max-width: 520px){
+        .stats{grid-template-columns:1fr}
+        .stat{border-right:0; border-bottom:1px solid var(--rule)}
+        .stat:last-child{border-bottom:0}
+      }
 
-  /* background */
-  .bg-card{
-    display:grid;
-    grid-template-columns: 160px 1fr;
-    gap: 40px;
-    align-items:start;
-  }
-  .avatar{
-    width:140px; height:140px; border-radius:50%;
-    background:
-      radial-gradient(120% 120% at 30% 20%, #e6f4ea 0%, var(--mint) 45%, #bce3c7 100%);
-    position:relative; overflow:hidden;
-    border: 4px solid var(--card);
-    box-shadow: 0 0 0 1px var(--rule), 0 10px 24px -12px rgba(26,58,42,.25);
-  }
-  .avatar::after{
-    content:""; position:absolute; inset:14px; border-radius:50%;
-    background: repeating-linear-gradient(135deg,
-      rgba(26,58,42,.05) 0 8px,
-      transparent 8px 16px);
-  }
-  .avatar .monogram{
-    position:absolute; inset:0;
-    display:grid; place-items:center;
-    font-family:var(--sans);
-    font-style:italic; font-weight:800;
-    font-size: 50px; color: var(--ink);
-    letter-spacing:-.02em;
-    z-index:1;
-  }
-  .avatar .photo-label{
-    position:absolute; left:50%; transform:translateX(-50%);
-    bottom:10px; z-index:2;
-    font-size:8.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-    color:var(--mint-deep); background: rgba(255,255,255,.85);
-    padding:3px 8px; border-radius:999px;
-  }
-  .bg-copy p{margin:0 0 14px}
-  .bg-copy p:last-child{margin:0}
-  @media (max-width:720px){
-    .bg-card{grid-template-columns:1fr; gap:22px; justify-items:start}
-  }
+      /* section head */
+      .section{padding: 56px 0}
+      .section-title{
+        display:flex; align-items:center; gap:14px;
+        margin: 0 0 28px;
+        color:var(--ink);
+      }
+      .section-title .dot{
+        width:44px; height:44px; border-radius:50%;
+        background:var(--mint); color:var(--mint-deep);
+        display:grid; place-items:center;
+        flex:none;
+      }
+      .section-title .dot svg{width:22px;height:22px}
+      .section-title h2{
+        margin:0; font-weight:800; font-size: 30px; letter-spacing:-.01em;
+      }
+      .section-title .count{
+        margin-left:auto;
+        font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+        color:var(--muted);
+      }
 
-  /* pills */
-  .pill{
-    display:inline-flex; align-items:center; gap:8px;
-    padding: 8px 14px;
-    background: var(--mint); color:var(--mint-deep);
-    border-radius: var(--radius-pill);
-    font-size:12.5px; font-weight:700; letter-spacing:.02em;
-    border:1px solid color-mix(in srgb, var(--mint-deep) 15%, transparent);
-  }
-  .pill.solid{
-    background:var(--ink); color:var(--bg);
-    border-color:var(--ink);
-  }
-  .pill .bullet{
-    width:6px; height:6px; border-radius:50%; background: currentColor;
-    opacity:.85;
-  }
+      /* cards */
+      .card{
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 36px;
+      }
+      .card.lg{padding: 40px}
 
-  /* timeline */
-  .timeline{
-    position:relative;
-    padding: 10px 0 0;
-  }
-  .timeline::before{
-    content:"";
-    position:absolute; left: 29px; top: 28px; bottom: 28px;
-    width:2px;
-    background: repeating-linear-gradient(
-      to bottom,
-      var(--mint-2) 0 6px,
-      transparent 6px 12px);
-  }
-  .tl-item{
-    position:relative;
-    display:grid;
-    grid-template-columns: 60px 1fr;
-    gap: 22px;
-    padding-bottom: 22px;
-  }
-  .tl-item:last-child{padding-bottom:0}
-  .tl-node{
-    position:relative;
-    width:60px; height:60px;
-  }
-  .tl-node .ring{
-    position:absolute; inset:0;
-    border-radius:50%;
-    background: var(--card);
-    border:2px solid var(--mint);
-    box-shadow: 0 4px 12px -4px rgba(26,58,42,.15);
-    display:grid; place-items:center;
-    color:var(--mint-deep);
-  }
-  .tl-node.active .ring{
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--mint);
-  }
-  .tl-node .ring svg{width:24px;height:24px}
-  .tl-node::after{
-    content:""; position:absolute; left:100%; top:50%;
-    width:22px; height:1.5px; background: var(--mint-2);
-    transform: translateY(-50%);
-  }
-  .tl-card{
-    background:var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 26px 28px;
-    position:relative;
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .tl-card:hover{
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-  .tl-head{
-    display:flex; flex-wrap:wrap; gap: 14px 18px;
-    align-items:baseline; justify-content:space-between;
-    margin-bottom:6px;
-  }
-  .tl-role{
-    font-size: 19px; font-weight:700; color:var(--ink); margin:0;
-  }
-  .tl-date{
-    font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--muted);
-    display:inline-flex; align-items:center; gap:10px;
-    white-space:nowrap;
-  }
-  .tl-date .sep{width:4px;height:4px;border-radius:50%;background:var(--mint-2)}
-  .tl-org{
-    color: var(--mint-deep); font-weight:700; font-size:13.5px;
-    margin-bottom:12px;
-  }
-  .tl-desc{margin:6px 0 0; color:var(--text); font-size:14.5px}
-  .tl-list{
-    list-style:none; padding:0; margin: 12px 0 0;
-    display:flex; flex-direction:column; gap:8px;
-  }
-  .tl-list li{
-    position:relative;
-    padding-left:22px;
-    color:var(--text); font-size:14.5px;
-    line-height:1.55;
-  }
-  .tl-list li::before{
-    content:""; position:absolute; left:0; top:10px;
-    width:12px; height:2px; background:var(--mint-deep);
-    border-radius:2px;
-  }
+      /* background card */
+      .bg-card{
+        display:grid;
+        grid-template-columns: 160px 1fr;
+        gap: 40px;
+        align-items:start;
+      }
+      .avatar{
+        width:140px; height:140px; border-radius:50%;
+        background:
+          radial-gradient(120% 120% at 30% 20%, #e6f4ea 0%, var(--mint) 45%, #bce3c7 100%);
+        position:relative; overflow:hidden;
+        border: 4px solid var(--card);
+        box-shadow: 0 0 0 1px var(--rule), 0 10px 24px -12px rgba(26,58,42,.25);
+      }
+      .avatar::after{
+        content:""; position:absolute; inset:14px; border-radius:50%;
+        background: repeating-linear-gradient(135deg,
+          rgba(26,58,42,.05) 0 8px,
+          transparent 8px 16px);
+      }
+      .avatar .monogram{
+        position:absolute; inset:0;
+        display:grid; place-items:center;
+        font-family:var(--sans);
+        font-style:italic; font-weight:800;
+        font-size: 50px; color: var(--ink);
+        letter-spacing:-.02em;
+        z-index:1;
+      }
+      .avatar .photo-label{
+        position:absolute; left:50%; transform:translateX(-50%);
+        bottom:10px; z-index:2;
+        font-size:8.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+        color:var(--mint-deep); background: rgba(255,255,255,.85);
+        padding:3px 8px; border-radius:999px;
+      }
+      .bg-copy p{margin:0 0 14px}
+      .bg-copy p:last-child{margin:0}
+      @media (max-width:720px){
+        .bg-card{grid-template-columns:1fr; gap:22px; justify-items:start}
+      }
 
-  .edu-honors{
-    display:flex; flex-wrap:wrap; gap:8px;
-    margin: 14px 0 0;
-  }
+      /* pills */
+      .pill{
+        display:inline-flex; align-items:center; gap:8px;
+        padding: 8px 14px;
+        background: var(--mint); color:var(--mint-deep);
+        border-radius: var(--radius-pill);
+        font-size:12.5px; font-weight:700; letter-spacing:.02em;
+        border:1px solid color-mix(in srgb, var(--mint-deep) 15%, transparent);
+      }
 
-  /* two col: leadership + involvement */
-  .two-col{
-    display:grid; grid-template-columns: 1fr 1fr; gap: 20px;
-  }
-  @media (max-width: 900px){ .two-col{grid-template-columns:1fr} }
+      /* timeline */
+      .timeline{
+        position:relative;
+        padding: 10px 0 0;
+      }
+      .timeline::before{
+        content:"";
+        position:absolute; left: 29px; top: 28px; bottom: 28px;
+        width:2px;
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--mint-2) 0 6px,
+          transparent 6px 12px);
+      }
+      .tl-item{
+        position:relative;
+        display:grid;
+        grid-template-columns: 60px 1fr;
+        gap: 22px;
+        padding-bottom: 22px;
+      }
+      .tl-item:last-child{padding-bottom:0}
+      .tl-node{
+        position:relative;
+        width:60px; height:60px;
+      }
+      .tl-node .ring{
+        position:absolute; inset:0;
+        border-radius:50%;
+        background: var(--card);
+        border:2px solid var(--mint);
+        box-shadow: 0 4px 12px -4px rgba(26,58,42,.15);
+        display:grid; place-items:center;
+        color:var(--mint-deep);
+      }
+      .tl-node.active .ring{
+        background: var(--ink);
+        border-color: var(--ink);
+        color: var(--mint);
+      }
+      .tl-node .ring svg{width:24px;height:24px}
+      .tl-node::after{
+        content:""; position:absolute; left:100%; top:50%;
+        width:22px; height:1.5px; background: var(--mint-2);
+        transform: translateY(-50%);
+      }
+      .tl-card{
+        background:var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 26px 28px;
+        position:relative;
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+      .tl-card:hover{
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .tl-head{
+        display:flex; flex-wrap:wrap; gap: 14px 18px;
+        align-items:baseline; justify-content:space-between;
+        margin-bottom:6px;
+      }
+      .tl-role{
+        font-size: 19px; font-weight:700; color:var(--ink); margin:0;
+      }
+      .tl-date{
+        font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+        color:var(--muted);
+        display:inline-flex; align-items:center; gap:10px;
+        white-space:nowrap;
+      }
+      .tl-date .sep{width:4px;height:4px;border-radius:50%;background:var(--mint-2)}
+      .tl-org{
+        color: var(--mint-deep); font-weight:700; font-size:13.5px;
+        margin-bottom:12px;
+      }
+      .tl-desc{margin:6px 0 0; color:var(--text); font-size:14.5px}
+      .tl-list{
+        list-style:none; padding:0; margin: 12px 0 0;
+        display:flex; flex-direction:column; gap:8px;
+      }
+      .tl-list li{
+        position:relative;
+        padding-left:22px;
+        color:var(--text); font-size:14.5px;
+        line-height:1.55;
+      }
+      .tl-list li::before{
+        content:""; position:absolute; left:0; top:10px;
+        width:12px; height:2px; background:var(--mint-deep);
+        border-radius:2px;
+      }
 
-  .lead-card{
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 26px 28px;
-    margin-bottom:16px;
-  }
-  .lead-card:last-child{margin-bottom:0}
+      .edu-honors{
+        display:flex; flex-wrap:wrap; gap:8px;
+        margin: 14px 0 0;
+      }
 
-  .inv-card{
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 20px 22px;
-    border-left: 4px solid var(--mint);
-    display:flex; flex-direction:column; gap:4px;
-    transition: border-color .2s ease, transform .2s ease;
-  }
-  .inv-card:hover{border-left-color: var(--mint-deep); transform: translateX(2px)}
-  .inv-card .t{font-weight:700; color:var(--ink); font-size:15px}
-  .inv-card .m{color:var(--muted); font-size:12.5px}
-  .inv-grid{display:grid; gap:12px}
+      /* two col: leadership + involvement */
+      .two-col{
+        display:grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      }
+      @media (max-width: 900px){ .two-col{grid-template-columns:1fr} }
 
-  /* skills */
-  .skills-card{
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 30px 32px;
-  }
-  .skills-label{
-    font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--muted); margin: 0 0 12px;
-  }
-  .skill-cloud{
-    display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 26px;
-  }
-  .skill-cloud:last-child{margin-bottom:0}
-  .skill-tag{
-    display:inline-flex; align-items:center; gap:8px;
-    padding: 10px 16px;
-    background: var(--mint); color:var(--mint-deep);
-    border-radius: var(--radius-pill);
-    font-size:13px; font-weight:700;
-    border:1px solid color-mix(in srgb, var(--mint-deep) 15%, transparent);
-  }
-  .interests{
-    font-size:14.5px; color:var(--text); line-height:1.65;
-  }
+      .lead-card{
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 26px 28px;
+        margin-bottom:16px;
+      }
+      .lead-card:last-child{margin-bottom:0}
 
-  /* footer */
-  footer.foot{
-    border-top:1px solid var(--rule);
-    margin-top: 60px;
-    padding: 32px 0 48px;
-  }
-  footer.foot .row{
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
-    font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600;
-  }
-  footer.foot b{color:var(--ink); font-weight:700}
+      .inv-card{
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 20px 22px;
+        border-left: 4px solid var(--mint);
+        display:flex; flex-direction:column; gap:4px;
+        transition: border-color .2s ease, transform .2s ease;
+      }
+      .inv-card:hover{border-left-color: var(--mint-deep); transform: translateX(2px)}
+      .inv-card .t{font-weight:700; color:var(--ink); font-size:15px}
+      .inv-card .m{color:var(--muted); font-size:12.5px}
+      .inv-grid{display:grid; gap:12px}
 
-  .eyebrow{
-    font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--mint-deep); margin-bottom: 10px;
-  }
-</style>
+      /* skills */
+      .skills-card{
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 30px 32px;
+      }
+      .skills-label{
+        font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+        color:var(--muted); margin: 0 0 12px;
+      }
+      .skill-cloud{
+        display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 26px;
+      }
+      .skill-cloud:last-child{margin-bottom:0}
+      .skill-tag{
+        display:inline-flex; align-items:center; gap:8px;
+        padding: 10px 16px;
+        background: var(--mint); color:var(--mint-deep);
+        border-radius: var(--radius-pill);
+        font-size:13px; font-weight:700;
+        border:1px solid color-mix(in srgb, var(--mint-deep) 15%, transparent);
+      }
+      .interests{
+        font-size:14.5px; color:var(--text); line-height:1.65;
+      }
+
+      .eyebrow{
+        font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+        color:var(--mint-deep); margin-bottom: 10px;
+      }
+
+      /* Scroll reveal (matches other pages) */
+      :root { --spring: cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal { opacity:0; transform:translateY(48px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+      .reveal-left { opacity:0; transform:translateX(-56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+      .reveal-right { opacity:0; transform:translateX(56px); transition:opacity .75s var(--spring),transform .75s var(--spring); }
+      .reveal.in-view,.reveal-left.in-view,.reveal-right.in-view { opacity:1; transform:none; }
+      .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s} .d5{transition-delay:.40s} .d6{transition-delay:.48s}
+    </style>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-<!-- top bar -->
-<div class="topbar">
-  <div class="wrap row">
-    <div class="brand">
-      <div class="nm">MARK KHOURY</div>
-      <div class="tag">Driven by sport, built for business</div>
-    </div>
-    <nav class="primary">
-      <a href="/">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html" class="active">Resume</a>
-      <a href="awards.html">Awards</a>
+    <!-- Navigation (same as all pages) -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-green-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="cursor-pointer" onclick="window.location.href='/'">
+                <span class="text-xl font-extrabold text-gray-900 uppercase leading-none">Mark Khoury</span>
+                <p class="text-[10px] uppercase tracking-widest text-[#4a7c59] font-bold mt-1">Driven by Sport, Built for Business</p>
+            </div>
+
+            <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
+                <a href="/" class="nav-link hover:text-[#4a7c59] transition">Home</a>
+                <a href="projects.html" class="nav-link hover:text-[#4a7c59] transition">Projects</a>
+                <a href="resume.html" class="nav-link text-[#4a7c59] hover:text-[#4a7c59] transition">Resume</a>
+                <a href="awards.html" class="nav-link hover:text-[#4a7c59] transition">Awards</a>
+            </div>
+
+            <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-green-100 p-6 flex-col gap-4 shadow-lg">
+            <a href="/" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Home</a>
+            <a href="projects.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Projects</a>
+            <a href="resume.html" class="text-left font-bold text-[#4a7c59] hover:text-[#4a7c59]">Resume</a>
+            <a href="awards.html" class="text-left font-bold text-gray-600 hover:text-[#4a7c59]">Awards</a>
+        </div>
     </nav>
-  </div>
-</div>
 
-<!-- hero -->
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-row">
-      <div>
-        <div class="eyebrow">Sports Marketing · 2026</div>
-        <h1 class="hero-title">Resume</h1>
-        <div class="hero-sub">Experience, Education &amp; Qualifications.</div>
-      </div>
-      <a class="download" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-        Download CV
-      </a>
-    </div>
+    <main class="flex-grow pt-20">
 
-    <!-- stats strip -->
-    <div class="stats" aria-label="Key stats">
-      <div class="stat">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5a6 6 0 0 0 12 0v-5"/></svg>
-        </div>
-        <div class="v">89.50</div>
-        <div class="k">WAM</div>
-        <div class="sub">Weighted Average Mark</div>
-      </div>
-      <div class="stat">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>
-        </div>
-        <div class="v" style="font-size:30px">Dean's Merit</div>
-        <div class="k">Merit List</div>
-        <div class="sub">Awarded 2024</div>
-      </div>
-      <div class="stat">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 20V9l5-4 5 4v11"/><path d="M11 20v-5h2v5"/></svg>
-        </div>
-        <div class="v">Top 2<small>&nbsp;/ 4</small></div>
-        <div class="k">Subjects Ranked</div>
-        <div class="sub">Across four courses</div>
-      </div>
-      <div class="stat">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M15 20c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg>
-        </div>
-        <div class="v">2,500<small>+</small></div>
-        <div class="k">Event Participants</div>
-        <div class="sub">Reached through events</div>
-      </div>
-    </div>
-  </div>
-</header>
+      <!-- hero -->
+      <header class="hero">
+        <div class="wrap">
+          <div class="hero-row">
+            <div>
+              <div class="eyebrow">Sports Marketing · 2026</div>
+              <h1 class="hero-title">Resume</h1>
+              <div class="hero-sub">Experience, Education &amp; Qualifications.</div>
+            </div>
+            <a class="download" href="/Mark_Khoury_Resume.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              Download CV
+            </a>
+          </div>
 
-<!-- Professional Background -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="dot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-      </div>
-      <h2>Professional Background</h2>
-      <div class="count">01 · About</div>
-    </div>
-
-    <div class="card lg">
-      <div class="bg-card">
-        <div class="avatar" aria-label="Photo placeholder">
-          <span class="monogram">MK</span>
-          <span class="photo-label">Photo</span>
-        </div>
-        <div class="bg-copy">
-          <p>I'm in my final year of a Business degree at the University of Wollongong, majoring in Sports Marketing &amp; Management and minoring in Economics and Sustainable Business. I've built experience across coaching, peer education, event marketing, and retail, and along the way finished in the top two students in four subjects with a WAM of 89.50.</p>
-          <p>What ties it all together is an interest in how people and ideas come together to create something that actually works. Whether that's a coaching session, a campaign, or an event, I like being involved from the early thinking through to the moment it lands.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education -->
-<section class="section" id="education">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="dot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg>
-      </div>
-      <h2>Education</h2>
-      <div class="count">02 · Academic</div>
-    </div>
-
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-node active">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg>
+          <!-- stats strip -->
+          <div class="stats reveal" aria-label="Key stats">
+            <div class="stat">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5a6 6 0 0 0 12 0v-5"/></svg>
+              </div>
+              <div class="v">89.50</div>
+              <div class="k">WAM</div>
+              <div class="sub">Weighted Average Mark</div>
+            </div>
+            <div class="stat">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>
+              </div>
+              <div class="v" style="font-size:30px">Dean's Merit</div>
+              <div class="k">Merit List</div>
+              <div class="sub">Awarded 2024</div>
+            </div>
+            <div class="stat">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 20V9l5-4 5 4v11"/><path d="M11 20v-5h2v5"/></svg>
+              </div>
+              <div class="v">Top 2<small>&nbsp;/ 4</small></div>
+              <div class="k">Subjects Ranked</div>
+              <div class="sub">Across four courses</div>
+            </div>
+            <div class="stat">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M15 20c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg>
+              </div>
+              <div class="v">2,500<small>+</small></div>
+              <div class="k">Event Participants</div>
+              <div class="sub">Reached through events</div>
+            </div>
           </div>
         </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Bachelor of Business</h3>
-            <div class="tl-date">Feb 2024 <span class="sep"></span> Dec 2026</div>
+      </header>
+
+      <!-- Professional Background -->
+      <section class="section">
+        <div class="wrap">
+          <div class="section-title reveal">
+            <div class="dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <h2>Professional Background</h2>
+            <div class="count">01 · About</div>
           </div>
-          <div class="tl-org">University of Wollongong</div>
-          <p class="tl-desc">Majoring in Sports Marketing &amp; Management; Minors: Economics; Sustainable Business.</p>
-          <div class="edu-honors">
-            <span class="pill">WAM: 89.50</span>
-            <span class="pill">Dean's Merit List (2024)</span>
-            <span class="pill">Eq. 1st / 106 · ECON205 Macroeconomic Theory and Policy (95%)</span>
-            <span class="pill">Eq. 2nd / 124 · ECON260 Contemporary Economic Issues (94%)</span>
-            <span class="pill">Eq. 2nd / 109 · MARK230 Social and Sustainability Marketing (97%)</span>
-            <span class="pill">Eq. 2nd / 262 · MARK255 AI Marketing Implementation (96%)</span>
+
+          <div class="card lg reveal">
+            <div class="bg-card">
+              <div class="avatar" aria-label="Photo placeholder">
+                <span class="monogram">MK</span>
+                <span class="photo-label">Photo</span>
+              </div>
+              <div class="bg-copy">
+                <p>I'm in my final year of a Business degree at the University of Wollongong, majoring in Sports Marketing &amp; Management and minoring in Economics and Sustainable Business. I've built experience across coaching, peer education, event marketing, and retail, and along the way finished in the top two students in four subjects with a WAM of 89.50.</p>
+                <p>What ties it all together is an interest in how people and ideas come together to create something that actually works. Whether that's a coaching session, a campaign, or an event, I like being involved from the early thinking through to the moment it lands.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="tl-item">
-        <div class="tl-node">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 10h8M8 14h5"/></svg>
+      <!-- Education -->
+      <section class="section" id="education">
+        <div class="wrap">
+          <div class="section-title reveal">
+            <div class="dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg>
+            </div>
+            <h2>Education</h2>
+            <div class="count">02 · Academic</div>
+          </div>
+
+          <div class="timeline">
+
+            <div class="tl-item reveal d1">
+              <div class="tl-node active">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">Bachelor of Business</h3>
+                  <div class="tl-date">Feb 2024 <span class="sep"></span> Dec 2026</div>
+                </div>
+                <div class="tl-org">University of Wollongong</div>
+                <p class="tl-desc">Majoring in Sports Marketing &amp; Management; Minors: Economics; Sustainable Business.</p>
+                <div class="edu-honors">
+                  <span class="pill">WAM: 89.50</span>
+                  <span class="pill">Dean's Merit List (2024)</span>
+                  <span class="pill">Eq. 1st / 106 · ECON205 Macroeconomic Theory and Policy (95%)</span>
+                  <span class="pill">Eq. 2nd / 124 · ECON260 Contemporary Economic Issues (94%)</span>
+                  <span class="pill">Eq. 2nd / 109 · MARK230 Social and Sustainability Marketing (97%)</span>
+                  <span class="pill">Eq. 2nd / 262 · MARK255 AI Marketing Implementation (96%)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item reveal d2">
+              <div class="tl-node">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 10h8M8 14h5"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">High School Certificate</h3>
+                  <div class="tl-date">Graduated <span class="sep"></span> 2023</div>
+                </div>
+                <div class="tl-org">Smith's Hill High School</div>
+                <div class="edu-honors">
+                  <span class="pill">ATAR: 90.15</span>
+                  <span class="pill">Gold Leadership and Service Award</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">High School Certificate</h3>
-            <div class="tl-date">Graduated <span class="sep"></span> 2023</div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section" id="experience">
+        <div class="wrap">
+          <div class="section-title reveal">
+            <div class="dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </div>
+            <h2>Experience</h2>
+            <div class="count">03 · Work</div>
           </div>
-          <div class="tl-org">Smith's Hill High School</div>
-          <div class="edu-honors">
-            <span class="pill">ATAR: 90.15</span>
-            <span class="pill">Gold Leadership and Service Award</span>
+
+          <div class="timeline">
+
+            <div class="tl-item reveal d1">
+              <div class="tl-node active">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">Marketing &amp; Events Intern</h3>
+                  <div class="tl-date">Jul 2025 <span class="sep"></span> Jan 2026</div>
+                </div>
+                <div class="tl-org">Activate Events</div>
+                <ul class="tl-list">
+                  <li>Contributed to marketing and communications delivery for the MMJ Aquathon, the Illawarra's flagship community fitness event, reaching 2,500+ participants</li>
+                  <li>Created social media content, managed digital updates, and handled participant communications throughout the event campaign</li>
+                  <li>Supported sponsorship, media, and community engagement activities, including promotional activations and business spotlights</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item reveal d2">
+              <div class="tl-node">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l4-8 4 5 4-10 4 13"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">PASS Leader</h3>
+                  <div class="tl-date">Feb 2025 <span class="sep"></span> Present</div>
+                </div>
+                <div class="tl-org">University of Wollongong</div>
+                <ul class="tl-list">
+                  <li>Facilitate weekly peer-assisted study sessions in both in-person and online formats</li>
+                  <li>Design interactive revision materials and lead collaborative problem-solving activities</li>
+                  <li>Support diverse learning styles and maintain a positive, inclusive learning environment</li>
+                  <li>Collaborate with academic staff to align content with subject requirements</li>
+                  <li>Nominated for the Australasian Outstanding New PASS Leader Award, recognising impact and leadership within the program</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item reveal d3">
+              <div class="tl-node">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M2 12h4M18 12h4M12 2v4M12 18v4"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">PASS Mentor</h3>
+                  <div class="tl-date">Feb 2026 <span class="sep"></span> Present</div>
+                </div>
+                <div class="tl-org">University of Wollongong</div>
+                <ul class="tl-list">
+                  <li>Mentor and support new PASS Leaders through onboarding, session preparation, and facilitation development</li>
+                  <li>Observe sessions and provide structured feedback to help emerging leaders build confidence and refine their approach</li>
+                  <li>Share facilitation strategies and best practices to foster inclusive, high-quality learning environments</li>
+                  <li>Contribute to program quality by supporting the continuous development of the PASS Leader cohort</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item reveal d4">
+              <div class="tl-node">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12c4 2 14 2 18 0M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">Tennis Coach</h3>
+                  <div class="tl-date">Aug 2021 <span class="sep"></span> Present</div>
+                </div>
+                <div class="tl-org">Bulli Tennis Centre</div>
+                <ul class="tl-list">
+                  <li>Deliver coaching to junior and inclusive players through individual and group sessions</li>
+                  <li>Tailor instruction to suit varied abilities, learning styles, and development levels</li>
+                  <li>Promote player confidence through clear communication and goal-focused feedback</li>
+                  <li>Build strong rapport with players and families to support engagement and progress</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item reveal d5">
+              <div class="tl-node">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l6 4 6-4v14l-6 4-6-4z"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">Footwear Associate</h3>
+                  <div class="tl-date">Nov 2024 <span class="sep"></span> Feb 2025</div>
+                </div>
+                <div class="tl-org">JD Sports</div>
+                <ul class="tl-list">
+                  <li>Delivered personalised customer service in a high-traffic retail environment</li>
+                  <li>Maintained and organised footwear displays to maximise product appeal and sales</li>
+                  <li>Assisted with stock replenishment, size requests, and inventory control</li>
+                  <li>Supported team targets by promoting key product ranges and upselling when appropriate</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item reveal d6">
+              <div class="tl-node">
+                <div class="ring">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v6c0 4-4 7-8 8-4-1-8-4-8-8V7z"/></svg>
+                </div>
+              </div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <h3 class="tl-role">Election Official</h3>
+                  <div class="tl-date">Sept 2023</div>
+                </div>
+                <div class="tl-org">NSW Electoral Commission</div>
+                <ul class="tl-list">
+                  <li>Managed voter check-ins and ballot handling at a high-turnout polling station</li>
+                  <li>Ensured compliance with electoral protocols and verified voter identity</li>
+                  <li>Contributed to efficient polling operations with zero procedural errors</li>
+                  <li>Recognised with the highest staff performance rating for professionalism and accuracy</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
+      <!-- Leadership + Involvement -->
+      <section class="section" id="leadership">
+        <div class="wrap">
+          <div class="two-col">
 
-<!-- Experience -->
-<section class="section" id="experience">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="dot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-      </div>
-      <h2>Experience</h2>
-      <div class="count">03 · Work</div>
-    </div>
+            <div>
+              <div class="section-title reveal">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M15 20c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg>
+                </div>
+                <h2>Leadership</h2>
+              </div>
 
-    <div class="timeline">
+              <div class="lead-card reveal d1">
+                <div class="tl-head">
+                  <h3 class="tl-role">Play Free Sport Volunteer, Basketball</h3>
+                  <div class="tl-date">Jan 2025 <span class="sep"></span> Dec 2025</div>
+                </div>
+                <div class="tl-org">UOW Pulse</div>
+                <ul class="tl-list">
+                  <li>Support weekly casual basketball sessions promoting student health and social inclusion</li>
+                  <li>Assist with setup, participant check-in, and informal game coordination</li>
+                  <li>Foster a welcoming, inclusive atmosphere through active peer engagement</li>
+                </ul>
+              </div>
 
-      <div class="tl-item">
-        <div class="tl-node active">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+              <div class="lead-card reveal d2">
+                <div class="tl-head">
+                  <h3 class="tl-role">Volunteer Assistant Academy Coach</h3>
+                  <div class="tl-date">Feb 2022 <span class="sep"></span> July 2022</div>
+                </div>
+                <div class="tl-org">Wollongong Wolves FC</div>
+                <ul class="tl-list">
+                  <li>Delivered weekly technical training sessions for players aged 8 to 14</li>
+                  <li>Focused on individual skill development, including first touch, passing, and positioning</li>
+                  <li>Adapted coaching based on skill level and player learning styles</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="section-title reveal">
+                <div class="dot">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+                </div>
+                <h2>Involvement</h2>
+              </div>
+
+              <div class="inv-grid">
+                <div class="inv-card reveal d1">
+                  <div class="t">Competitive Basketball Player</div>
+                  <div class="m">Snakepit League &amp; UBL · 2021 to Present</div>
+                </div>
+                <div class="inv-card reveal d2">
+                  <div class="t">Walk the Field, Student Event Organising Team</div>
+                  <div class="m">UOW &amp; Football South Coast · 2025</div>
+                </div>
+                <div class="inv-card reveal d3">
+                  <div class="t">Vygo Mentoring Program Mentee</div>
+                  <div class="m">University of Wollongong · 2024</div>
+                </div>
+                <div class="inv-card reveal d4">
+                  <div class="t">Cancer Council Volunteer</div>
+                  <div class="m">Australia's Biggest Morning Tea · 2023</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Marketing &amp; Events Intern</h3>
-            <div class="tl-date">Jul 2025 <span class="sep"></span> Jan 2026</div>
-          </div>
-          <div class="tl-org">Activate Events</div>
-          <ul class="tl-list">
-            <li>Contributed to marketing and communications delivery for the MMJ Aquathon, the Illawarra's flagship community fitness event, reaching 2,500+ participants</li>
-            <li>Created social media content, managed digital updates, and handled participant communications throughout the event campaign</li>
-            <li>Supported sponsorship, media, and community engagement activities, including promotional activations and business spotlights</li>
-          </ul>
-        </div>
-      </div>
+      </section>
 
-      <div class="tl-item">
-        <div class="tl-node">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l4-8 4 5 4-10 4 13"/></svg>
+      <!-- Skills & Interests -->
+      <section class="section" id="skills">
+        <div class="wrap">
+          <div class="section-title reveal">
+            <div class="dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 22 12 18l-5.5 4L8 14.5 3 10l6.5-1.5z"/></svg>
+            </div>
+            <h2>Skills &amp; Interests</h2>
+            <div class="count">05 · Abilities</div>
           </div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">PASS Leader</h3>
-            <div class="tl-date">Feb 2025 <span class="sep"></span> Present</div>
-          </div>
-          <div class="tl-org">University of Wollongong</div>
-          <ul class="tl-list">
-            <li>Facilitate weekly peer-assisted study sessions in both in-person and online formats</li>
-            <li>Design interactive revision materials and lead collaborative problem-solving activities</li>
-            <li>Support diverse learning styles and maintain a positive, inclusive learning environment</li>
-            <li>Collaborate with academic staff to align content with subject requirements</li>
-            <li>Nominated for the Australasian Outstanding New PASS Leader Award, recognising impact and leadership within the program</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="tl-item">
-        <div class="tl-node">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M2 12h4M18 12h4M12 2v4M12 18v4"/></svg>
+          <div class="skills-card reveal">
+            <div class="skills-label">Technical Skills</div>
+            <div class="skill-cloud">
+              <span class="skill-tag">Google Workspace</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Meta Business Suite</span>
+            </div>
+
+            <div class="skills-label">Interests</div>
+            <p class="interests">Sports Marketing, Fan Engagement, Strategic Sponsorship, Broadcast Rights, Football (Soccer), NRL, Basketball, Tennis, Global Sport Industry Trends.</p>
           </div>
         </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">PASS Mentor</h3>
-            <div class="tl-date">Feb 2026 <span class="sep"></span> Present</div>
-          </div>
-          <div class="tl-org">University of Wollongong</div>
-          <ul class="tl-list">
-            <li>Mentor and support new PASS Leaders through onboarding, session preparation, and facilitation development</li>
-            <li>Observe sessions and provide structured feedback to help emerging leaders build confidence and refine their approach</li>
-            <li>Share facilitation strategies and best practices to foster inclusive, high-quality learning environments</li>
-            <li>Contribute to program quality by supporting the continuous development of the PASS Leader cohort</li>
-          </ul>
+      </section>
+
+    </main>
+
+    <!-- Footer (same as all pages) -->
+    <footer class="py-12 bg-green-50/50 text-center border-t border-green-100">
+        <div class="flex justify-center gap-6 mb-8 text-[#4a7c59]">
+            <a href="https://www.linkedin.com/in/mark-khoury-9b96a0322" target="_blank" rel="noopener" class="hover:scale-110 transition"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="https://www.instagram.com/khourymarketing/" target="_blank" rel="noopener" class="hover:scale-110 transition"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="https://www.youtube.com/@markkhoury1053" target="_blank" rel="noopener" class="hover:scale-110 transition"><i class="fab fa-youtube text-xl"></i></a>
         </div>
-      </div>
+        <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">© Mark Khoury | 2026 | Wollongong, AU</p>
+    </footer>
 
-      <div class="tl-item">
-        <div class="tl-node">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12c4 2 14 2 18 0M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
-          </div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Tennis Coach</h3>
-            <div class="tl-date">Aug 2021 <span class="sep"></span> Present</div>
-          </div>
-          <div class="tl-org">Bulli Tennis Centre</div>
-          <ul class="tl-list">
-            <li>Deliver coaching to junior and inclusive players through individual and group sessions</li>
-            <li>Tailor instruction to suit varied abilities, learning styles, and development levels</li>
-            <li>Promote player confidence through clear communication and goal-focused feedback</li>
-            <li>Build strong rapport with players and families to support engagement and progress</li>
-          </ul>
-        </div>
-      </div>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
 
-      <div class="tl-item">
-        <div class="tl-node">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l6 4 6-4v14l-6 4-6-4z"/></svg>
-          </div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Footwear Associate</h3>
-            <div class="tl-date">Nov 2024 <span class="sep"></span> Feb 2025</div>
-          </div>
-          <div class="tl-org">JD Sports</div>
-          <ul class="tl-list">
-            <li>Delivered personalised customer service in a high-traffic retail environment</li>
-            <li>Maintained and organised footwear displays to maximise product appeal and sales</li>
-            <li>Assisted with stock replenishment, size requests, and inventory control</li>
-            <li>Supported team targets by promoting key product ranges and upselling when appropriate</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-node">
-          <div class="ring">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v6c0 4-4 7-8 8-4-1-8-4-8-8V7z"/></svg>
-          </div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Election Official</h3>
-            <div class="tl-date">Sept 2023</div>
-          </div>
-          <div class="tl-org">NSW Electoral Commission</div>
-          <ul class="tl-list">
-            <li>Managed voter check-ins and ballot handling at a high-turnout polling station</li>
-            <li>Ensured compliance with electoral protocols and verified voter identity</li>
-            <li>Contributed to efficient polling operations with zero procedural errors</li>
-            <li>Recognised with the highest staff performance rating for professionalism and accuracy</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Leadership + Involvement -->
-<section class="section" id="leadership">
-  <div class="wrap">
-    <div class="two-col">
-
-      <div>
-        <div class="section-title">
-          <div class="dot">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M15 20c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg>
-          </div>
-          <h2>Leadership</h2>
-        </div>
-
-        <div class="lead-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Play Free Sport Volunteer, Basketball</h3>
-            <div class="tl-date">Jan 2025 <span class="sep"></span> Dec 2025</div>
-          </div>
-          <div class="tl-org">UOW Pulse</div>
-          <ul class="tl-list">
-            <li>Support weekly casual basketball sessions promoting student health and social inclusion</li>
-            <li>Assist with setup, participant check-in, and informal game coordination</li>
-            <li>Foster a welcoming, inclusive atmosphere through active peer engagement</li>
-          </ul>
-        </div>
-
-        <div class="lead-card">
-          <div class="tl-head">
-            <h3 class="tl-role">Volunteer Assistant Academy Coach</h3>
-            <div class="tl-date">Feb 2022 <span class="sep"></span> July 2022</div>
-          </div>
-          <div class="tl-org">Wollongong Wolves FC</div>
-          <ul class="tl-list">
-            <li>Delivered weekly technical training sessions for players aged 8 to 14</li>
-            <li>Focused on individual skill development, including first touch, passing, and positioning</li>
-            <li>Adapted coaching based on skill level and player learning styles</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="section-title">
-          <div class="dot">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
-          </div>
-          <h2>Involvement</h2>
-        </div>
-
-        <div class="inv-grid">
-          <div class="inv-card">
-            <div class="t">Competitive Basketball Player</div>
-            <div class="m">Snakepit League &amp; UBL · 2021 to Present</div>
-          </div>
-          <div class="inv-card">
-            <div class="t">Walk the Field, Student Event Organising Team</div>
-            <div class="m">UOW &amp; Football South Coast · 2025</div>
-          </div>
-          <div class="inv-card">
-            <div class="t">Vygo Mentoring Program Mentee</div>
-            <div class="m">University of Wollongong · 2024</div>
-          </div>
-          <div class="inv-card">
-            <div class="t">Cancer Council Volunteer</div>
-            <div class="m">Australia's Biggest Morning Tea · 2023</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Skills & Interests -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="dot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 22 12 18l-5.5 4L8 14.5 3 10l6.5-1.5z"/></svg>
-      </div>
-      <h2>Skills &amp; Interests</h2>
-      <div class="count">05 · Abilities</div>
-    </div>
-
-    <div class="skills-card">
-      <div class="skills-label">Technical Skills</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">Google Workspace</span>
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">Excel</span>
-        <span class="skill-tag">Meta Business Suite</span>
-      </div>
-
-      <div class="skills-label">Interests</div>
-      <p class="interests">Sports Marketing, Fan Engagement, Strategic Sponsorship, Broadcast Rights, Football (Soccer), NRL, Basketball, Tennis, Global Sport Industry Trends.</p>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="wrap row">
-    <div><b>Mark Khoury</b> · Resume 2026</div>
-    <div>Driven by Sport, Built for Business</div>
-  </div>
-</footer>
+        // Scroll reveal (same IntersectionObserver as other pages)
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in-view');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
