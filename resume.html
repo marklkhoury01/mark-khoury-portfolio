@@ -450,9 +450,21 @@
         font-size:14.5px; color:var(--text); line-height:1.65;
       }
 
-      .eyebrow{
-        font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-        color:var(--mint-deep); margin-bottom: 10px;
+      /* Traveling dot on timeline */
+      .tl-dot {
+        position: absolute;
+        left: 24px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--ink);
+        border: 2.5px solid var(--bg);
+        box-shadow: 0 0 0 1.5px var(--ink);
+        z-index: 3;
+        pointer-events: none;
+        top: 28px;
+        will-change: top;
+        transition: top 0.08s linear;
       }
 
       /* Scroll reveal (matches other pages) */
@@ -501,7 +513,6 @@
         <div class="wrap">
           <div class="hero-row">
             <div>
-              <div class="eyebrow">Sports Marketing · 2026</div>
               <h1 class="hero-title">Resume</h1>
               <div class="hero-sub">Experience, Education &amp; Qualifications.</div>
             </div>
@@ -589,7 +600,7 @@
           <div class="timeline">
 
             <div class="tl-item reveal d1">
-              <div class="tl-node active">
+              <div class="tl-node">
                 <div class="ring">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg>
                 </div>
@@ -649,7 +660,7 @@
           <div class="timeline">
 
             <div class="tl-item reveal d1">
-              <div class="tl-node active">
+              <div class="tl-node">
                 <div class="ring">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
                 </div>
@@ -906,6 +917,33 @@
             });
         }, { threshold: 0.12 });
         revealEls.forEach(el => observer.observe(el));
+
+        // Traveling dot: one dot per timeline that slides along the dashed line with scroll
+        document.querySelectorAll('.timeline').forEach(tl => {
+            const dot = document.createElement('div');
+            dot.className = 'tl-dot';
+            tl.appendChild(dot);
+        });
+
+        function updateTimelineDots() {
+            const mid = window.innerHeight / 2;
+            document.querySelectorAll('.timeline').forEach(tl => {
+                const dot = tl.querySelector('.tl-dot');
+                if (!dot) return;
+                const rect = tl.getBoundingClientRect();
+                const lineStart = 28;
+                const lineEnd = tl.offsetHeight - 28;
+                const lineLength = lineEnd - lineStart;
+                // how far the viewport midpoint is into the line
+                const midInTl = mid - rect.top;
+                let progress = (midInTl - lineStart) / lineLength;
+                progress = Math.max(0, Math.min(1, progress));
+                dot.style.top = (lineStart + progress * lineLength) + 'px';
+            });
+        }
+
+        window.addEventListener('scroll', updateTimelineDots, { passive: true });
+        updateTimelineDots();
     </script>
 
 </body>
