@@ -246,28 +246,6 @@
         border: 4px solid var(--card);
         box-shadow: 0 0 0 1px var(--rule), 0 10px 24px -12px rgba(26,58,42,.25);
       }
-      .avatar::after{
-        content:""; position:absolute; inset:14px; border-radius:50%;
-        background: repeating-linear-gradient(135deg,
-          rgba(26,58,42,.05) 0 8px,
-          transparent 8px 16px);
-      }
-      .avatar .monogram{
-        position:absolute; inset:0;
-        display:grid; place-items:center;
-        font-family:var(--sans);
-        font-style:italic; font-weight:800;
-        font-size: 50px; color: var(--ink);
-        letter-spacing:-.02em;
-        z-index:1;
-      }
-      .avatar .photo-label{
-        position:absolute; left:50%; transform:translateX(-50%);
-        bottom:10px; z-index:2;
-        font-size:8.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-        color:var(--mint-deep); background: rgba(255,255,255,.85);
-        padding:3px 8px; border-radius:999px;
-      }
       .bg-copy p{margin:0 0 14px}
       .bg-copy p:last-child{margin:0}
       @media (max-width:720px){
@@ -580,9 +558,8 @@
 
           <div class="card lg reveal">
             <div class="bg-card">
-              <div class="avatar" aria-label="Photo placeholder">
-                <span class="monogram">MK</span>
-                <span class="photo-label">Photo</span>
+              <div class="avatar" aria-label="Mark Khoury">
+                <img src="/images/Mark_Khoury.png" alt="Mark Khoury" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:1;" />
               </div>
               <div class="bg-copy">
                 <p>I'm in my final year of a Business degree at the University of Wollongong, majoring in Sports Marketing &amp; Management and minoring in Economics and Sustainable Business. I've built experience across coaching, peer education, event marketing, and retail, and along the way finished in the top two students in four subjects with a WAM of 89.50.</p>
