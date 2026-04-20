@@ -1,5 +1,11 @@
 {
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mark-khoury-e-portfolio.vercel.app" }],
+      "destination": "https://marklkhoury.com/$1",
+      "permanent": true
+    },
     { "source": "/index.html", "destination": "/", "permanent": true }
   ],
   "headers": [
