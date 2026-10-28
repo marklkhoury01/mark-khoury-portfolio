@@ -142,6 +142,26 @@
 
                 <div class="space-y-12">
 
+                    <!-- Featured: Jordan Tatum 5 spec ad (full-width, breaks the standard card layout on purpose) -->
+                    <div class="bg-[#0d1410] rounded-3xl overflow-hidden shadow-xl reveal-scale">
+                        <div class="p-6 md:p-10">
+                            <span class="text-xs font-bold text-[#8fc19d] uppercase tracking-widest">Featured · Spec Ad</span>
+                            <h2 class="text-3xl md:text-5xl font-extrabold italic uppercase tracking-tight text-white leading-none mt-3">Jordan Tatum 5 "Sunrise"</h2>
+                            <p class="text-gray-300 text-sm md:text-base mt-4">A comeback story in 40 seconds. Concept, motion &amp; edit by me.</p>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-3">Independent concept · Not affiliated with Nike or Jordan Brand</p>
+                        </div>
+                        <div class="relative aspect-video bg-black">
+                            <!-- Plays muted on loop while on screen (browsers only allow muted autoplay); Sound on restarts it with audio -->
+                            <video id="tatum-spot" src="/images/Jordan_Tatum_5_Spec_Ad.mp4" poster="/images/Jordan_Tatum_5_Spec_Ad.webp"
+                                   class="w-full h-full object-cover" muted loop playsinline preload="metadata"
+                                   aria-label="Jordan Tatum 5 Sunrise spec ad video"></video>
+                            <button type="button" id="tatum-sound" onclick="playTatumSpot()"
+                                    class="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-black/60 backdrop-blur text-white px-4 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest hover:bg-black/80 transition">
+                                <i class="fas fa-volume-high"></i> Sound on
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Project 1 -->
                     <div class="bg-white p-5 md:p-10 rounded-3xl border border-green-100 flex flex-col md:flex-row gap-6 md:gap-10 shadow-sm hover:shadow-lg transition duration-300">
                         <div class="md:w-1/2 flex flex-col justify-center reveal-left">
@@ -306,6 +326,30 @@
             menu.classList.toggle('hidden');
             menu.classList.toggle('flex');
         }
+
+        // Restart the featured spot from the top with sound and native controls
+        function playTatumSpot() {
+            const video = document.getElementById('tatum-spot');
+            video.dataset.engaged = 'true';
+            video.muted = false;
+            video.loop = false;
+            video.controls = true;
+            video.currentTime = 0;
+            document.getElementById('tatum-sound').classList.add('hidden');
+            video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            video.play();
+        }
+
+        // Muted preview plays only while on screen, and not at all for reduced-motion users
+        (function () {
+            const video = document.getElementById('tatum-spot');
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            new IntersectionObserver(function (entries) {
+                if (video.dataset.engaged) return;
+                if (entries[0].isIntersecting) video.play().catch(function () {});
+                else video.pause();
+            }, { threshold: 0.4 }).observe(video);
+        })();
 
 
         (function(){
