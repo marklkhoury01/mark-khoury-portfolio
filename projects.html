@@ -152,7 +152,7 @@
                         </div>
                         <div class="relative aspect-video bg-black">
                             <!-- Plays muted on loop while on screen (browsers only allow muted autoplay); Sound on restarts it with audio -->
-                            <video id="tatum-spot" src="/images/Jordan_Tatum_5_Spec_Ad.mp4" poster="/images/Jordan_Tatum_5_Spec_Ad.webp"
+                            <video id="tatum-spot" src="/images/Jordan_Tatum_5_Spec_Ad.mp4?v=2" poster="/images/Jordan_Tatum_5_Spec_Ad.webp"
                                    class="w-full h-full object-cover" muted loop playsinline preload="metadata"
                                    aria-label="Jordan Tatum 5 Sunrise spec ad video"></video>
                             <button type="button" id="tatum-sound" onclick="playTatumSpot()"
@@ -346,7 +346,8 @@
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             new IntersectionObserver(function (entries) {
                 if (video.dataset.engaged) return;
-                if (entries[0].isIntersecting) video.play().catch(function () {});
+                // Safari blocks autoplay in Low Power Mode; fall back to native controls instead of a frozen poster
+                if (entries[0].isIntersecting) video.play().catch(function () { video.controls = true; });
                 else video.pause();
             }, { threshold: 0.4 }).observe(video);
         })();
